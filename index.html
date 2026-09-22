@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<!-- ===== Ray Home Accessories — v4 · flat image structure: كل صور المنتجات في الجذر الرئيسي ===== -->
+<!-- ===== Ray Home Accessories — v5 · root folders: كل فولدر منتج في الجذر الرئيسي جنب index.html ===== -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="assets/fonts.css">
 <title>Ray Home Accessories — 3D Printed Warmth for Every Home</title>
@@ -1247,20 +1247,20 @@ const EGYPT = [
    • منتج جديد/جوه    : badge:'New'   (لإزالة أي بادج: badge:null)
    • الأكثر مبيعًا    : ضيفي/شيلي اسم المنتج من لستة BEST
    • تغيير القسم     : غيّري مكان الاسم جوه لست SECTIONS
-   • صور المنتج      : كلها في الجذر الرئيسي جنب index.html — اسم-المنتج-01.jpg, -02.jpg ... (والألوان: اسم-المنتج-sw-01.jpg) — استبدلي الملف بنفس الرقم
-   • اسم المنتج (id)  : هو نفس بادئة أسماء ملفات الصور — ماتغيّريش
+   • صور المنتج      : فولدر باسم المنتج في الجذر الرئيسي جنب index.html — اسم-المنتج/01.jpg, 02.jpg ... (والألوان: اسم-المنتج/sw/01.jpg) — استبدلي الملف بنفس الرقم
+   • اسم المنتج (id)  : هو نفس اسم الفولدر — ماتغيّريش
 ========================================================================= */
 const IMG = {
-  'chain-pendant-03':{ main:'chain-pendant-03-main.jpg', folder:{n:5}, sw:15 },
-  'pendant-lamp-007':{ main:'pendant-lamp-007-main.jpg', folder:{n:4}, sw:16, colors:[["Bone White","#F2EDE4"],["Beige","#E8D5B7"],["Sand Brown","#C8A97E"],["Light Khaki","#B8AC8B"],["Brown","#8A5A3B"],["Bronze","#8C7853"],["Black","#2B2926"],["Grey","#9A958D"],["Baby Blue","#A9C9DD"],["Sky Blue","#7FB2D4"],["Mint Green","#BCD6BF"],["Olive Green","#77814F"],["Light Pink","#E9C6C4"],["Canary Yellow","#F3D35F"],["Matte Brick","#A5533A"],["Matte Khaki","#9C9179"]] },
-  'pendant-lamp-008':{ main:'pendant-lamp-008-main.jpg', folder:{n:4}, sw:15 },
-  'twisted-pendant':{ main:'twisted-pendant-main.jpg', folder:{n:7}, sw:15 },
-  'table-lamp-025':{ main:'table-lamp-025-main.jpg', folder:{n:4}, sw:15 },
-  'konio-lamp':{ main:'konio-lamp-main.jpg', folder:{n:5} },
-  'flower-vase-013':{ main:'flower-vase-013-main.jpg', folder:{n:4}, sw:15 },
-  'flower-vase-016':{ main:'flower-vase-016-main.jpg', folder:{n:4}, sw:15 },
-  'planter-pot-005':{ main:'planter-pot-005-main.jpg', folder:{n:4} },
-  'planter-pot-014':{ main:'planter-pot-014-main.jpg', folder:{n:4} },
+  'chain-pendant-03':{ main:'chain-pendant-03/main.jpg', folder:{n:5}, sw:15 },
+  'pendant-lamp-007':{ main:'pendant-lamp-007/main.jpg', folder:{n:4}, sw:16, colors:[["Bone White","#F2EDE4"],["Beige","#E8D5B7"],["Sand Brown","#C8A97E"],["Light Khaki","#B8AC8B"],["Brown","#8A5A3B"],["Bronze","#8C7853"],["Black","#2B2926"],["Grey","#9A958D"],["Baby Blue","#A9C9DD"],["Sky Blue","#7FB2D4"],["Mint Green","#BCD6BF"],["Olive Green","#77814F"],["Light Pink","#E9C6C4"],["Canary Yellow","#F3D35F"],["Matte Brick","#A5533A"],["Matte Khaki","#9C9179"]] },
+  'pendant-lamp-008':{ main:'pendant-lamp-008/main.jpg', folder:{n:4}, sw:15 },
+  'twisted-pendant':{ main:'twisted-pendant/main.jpg', folder:{n:7}, sw:15 },
+  'table-lamp-025':{ main:'table-lamp-025/main.jpg', folder:{n:4}, sw:15 },
+  'konio-lamp':{ main:'konio-lamp/main.jpg', folder:{n:5} },
+  'flower-vase-013':{ main:'flower-vase-013/main.jpg', folder:{n:4}, sw:15 },
+  'flower-vase-016':{ main:'flower-vase-016/main.jpg', folder:{n:4}, sw:15 },
+  'planter-pot-005':{ main:'planter-pot-005/main.jpg', folder:{n:4} },
+  'planter-pot-014':{ main:'planter-pot-014/main.jpg', folder:{n:4} },
 };
 const CATALOG = {
   'chain-pendant-03':{ price:2300, sale:null, badge:null, defColor:'Beige', folder:{n:5}, sw:15,
@@ -1354,19 +1354,19 @@ function pickHtml(id){
     <span class="c-arr">${T().change} ▾</span>
   </button></div>`;
 }
-/* ================== FLAT IMAGE SYSTEM (v4) ================== */
-/* All product photos live in the site ROOT, next to index.html, named after the product id:
-     <product-id>-01.jpg ... -NN.jpg   gallery photos (count = folder.n)
-     <product-id>-main.jpg             main/card image
-     <product-id>-sw-01.jpg ...        per-color swatch photos (products with sw only)
-   Replace a photo  = overwrite that numbered file (no code change).
+/* ================== ROOT FOLDER SYSTEM (v5) ================== */
+/* Each product has its own folder in the site ROOT, named after the product id:
+     <product-id>/01.jpg ... -NN.jpg   gallery photos (count = folder.n)
+     <product-id>/main.jpg             main/card image
+     <product-id>/sw/01.jpg ...        per-color swatch photos (products with sw only)
+   Replace a photo  = overwrite that numbered file inside the folder (no code change).
    Add a photo      = add the next numbered file + bump folder.n for the product.
    Missing files silently fall back to the main image, so the site never breaks. */
 function pImgs(id){
   const p = PRODUCTS[id];
   if (p && p.folder){
     const out = [];
-    for (let i = 1; i <= (p.folder.n || 8); i++) out.push(id + '-' + String(i).padStart(2, '0') + '.jpg');
+    for (let i = 1; i <= (p.folder.n || 8); i++) out.push(id + '/' + String(i).padStart(2, '0') + '.jpg');
     return out;
   }
   return (p && p.imgs && p.imgs.length) ? p.imgs : [p.img];
@@ -1375,7 +1375,7 @@ function pMain(id){ return pImgs(id)[0]; }
 function imgFall(el){
   if (!el || el.dataset.fb) return;
   const p = P(el.dataset.pid);
-  if (p && /-(main|\d{2})\.jpg$/.test(el.getAttribute('src') || '')){ el.dataset.fb = '1'; el.onerror = null; el.src = p.img; }
+  if (p && /^[a-z0-9-]+\/(main|\d{2})\.jpg$/.test(el.getAttribute('src') || '')){ el.dataset.fb = '1'; el.onerror = null; el.src = p.img; }
 }
 function cardHtml(id, animate){
   const p = P(id);
@@ -1834,7 +1834,7 @@ function renderFilGrid(){
     $('#filGrid').className = 'fil-grid' + (opts.length===16 ? ' c16' : '');
     $('#filGrid').innerHTML = opts.map(([n,h],i)=>
       `<button type="button" class="fil swf ${n===c?'sel':''}" onclick="selectFil('${n}')">
-        <img src="${currentColorFor}-sw-${String(i+1).padStart(2,'0')}.jpg" alt="${n}">
+        <img src="${currentColorFor}/sw/${String(i+1).padStart(2,'0')}.jpg" alt="${n}">
         <span class="f-nm">${cname(n)}</span>
       </button>`).join('');
   } else {
@@ -2311,5 +2311,5 @@ revealObserve(document);
   </div>
 </div>
 
-<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a3eee292a96a260a',t:'MTc5MDA1NDY4NA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</body>
 </html>
