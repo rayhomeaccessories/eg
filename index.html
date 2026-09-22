@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<!-- ===== Ray Home Accessories — v5.5 · موبايل: خطوط Quick View متوازنة على كل المقاسات ===== -->
+<!-- ===== Ray Home Accessories — v5.6 · إصلاح تداخل المصغرات مع التفاصيل على الموبايل ===== -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="assets/fonts.css">
 <title>Ray Home Accessories — 3D Printed Warmth for Every Home</title>
@@ -302,10 +302,16 @@ nav a:hover::after{width:100%}
 /* ---------- full-page product view ---------- */
 #modal{padding:0}
 #colorModal{z-index:140}
-#modal .m-box{max-width:none;width:100%;height:100%;max-height:100%;border:none;border-radius:0;box-shadow:none;direction:ltr;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);grid-template-rows:minmax(0,1fr);transform:none;overflow:hidden}
-#modal .m-side{border-inline-end:1px solid var(--line);min-height:0}
+#modal .m-box{max-width:none;width:100%;height:100%;max-height:100%;border:none;border-radius:0;box-shadow:none;direction:ltr;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);transform:none;overflow:hidden}
+#modal .m-side{border-inline-end:1px solid var(--line)}
 #modal .m-stage{aspect-ratio:auto;flex:1;min-height:340px;background:var(--cream-2)}
-#modal .m-info{overflow-y:auto;align-items:center;min-height:0}
+#modal .m-info{overflow-y:auto;align-items:center}
+/* v5.2/v5.6 — قفل ارتفاع الـ Quick View على الديسكتوب فقط (الموبايل بياخد ارتفاع محتواه زي ما كان) */
+@media (min-width:721px){
+  #modal .m-box{grid-template-rows:minmax(0,1fr)}
+  #modal .m-side{min-height:0}
+  #modal .m-info{min-height:0}
+}
 #modal .m-info > *{width:100%;max-width:640px}
 #modal .m-info h3{font-size:clamp(1.75rem,2.6vw,2.5rem);margin-bottom:14px}
 #modal .m-price{margin-bottom:22px}
@@ -343,7 +349,7 @@ nav a:hover::after{width:100%}
 .m-dims-lbl{flex:none;font-size:.62rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);background:var(--cream-2);padding:4px 9px;border-radius:8px}
 .m-dims-val{font-weight:600;color:var(--ink)}
 @media (max-width:720px){
-  #modal .m-box{grid-template-columns:1fr;grid-template-rows:auto;overflow-y:auto}
+  #modal .m-box{grid-template-columns:1fr;overflow-y:auto}
   #modal .m-stage{aspect-ratio:1/1;flex:none;min-height:0}
   #modal .m-side{border-inline-end:none;border-bottom:1px solid var(--line)}
   #modal .m-info{overflow:visible}
