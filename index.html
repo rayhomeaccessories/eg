@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<!-- ===== Ray Home Accessories — v5 · root folders: كل فولدر منتج في الجذر الرئيسي جنب index.html ===== -->
+<!-- ===== Ray Home Accessories — v5.1 · root folders + quick view: الصورة كاملة بدون قص + أبعاد متظبطة ===== -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="assets/fonts.css">
 <title>Ray Home Accessories — 3D Printed Warmth for Every Home</title>
@@ -272,7 +272,21 @@ nav a:hover::after{width:100%}
 #modal .m-box{max-width:none;width:100%;height:100%;max-height:100%;border:none;border-radius:0;box-shadow:none;direction:ltr;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);transform:none;overflow:hidden}
 #modal .m-side{border-inline-end:1px solid var(--line)}
 #modal .m-stage{aspect-ratio:auto;flex:1;min-height:340px;background:var(--cream-2)}
-#modal .m-info{overflow-y:auto}
+#modal .m-info{overflow-y:auto;align-items:center}
+#modal .m-info > *{width:100%;max-width:640px}
+#modal .m-info h3{font-size:clamp(1.75rem,2.6vw,2.5rem);margin-bottom:14px}
+#modal .m-price{margin-bottom:22px}
+#modal .m-price .now{font-size:1.35rem}
+#modal .m-dims{font-size:.9rem;padding:13px 16px}
+#modal p.desc{line-height:1.7;font-size:.92rem}
+#modal .c-pick-row{padding:0}
+#modal .c-pick{padding:13px 16px;font-size:.86rem}
+#modal .c-dot{width:18px;height:18px}
+#modal .c-hex{font-size:.72rem}
+#modal .c-arr{font-size:.72rem}
+#modal .m-actions{margin-top:auto;padding-top:30px}
+#modal .m-actions .add-btn{padding:16px;font-size:.95rem}
+#modal .m-actions .pill{padding:15px 22px;font-size:.85rem}
 [dir="rtl"] #modal .m-info{direction:rtl}
 .m-dims{display:flex;align-items:center;gap:10px;margin-top:14px;padding:11px 14px;background:var(--paper);border:1px solid var(--line);border-radius:12px;font-size:.82rem}
 .m-dims-lbl{flex:none;font-size:.62rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);background:var(--cream-2);padding:4px 9px;border-radius:8px}
@@ -291,13 +305,13 @@ nav a:hover::after{width:100%}
 .m-side{min-width:0;display:flex;flex-direction:column;background:var(--cream-2);border-inline-end:1px solid var(--line)}
 @media (max-width:720px){.m-side{border-inline-end:none;border-bottom:1px solid var(--line)}}
 .m-stage{position:relative;aspect-ratio:1/1;overflow:hidden;background:var(--paper)}
-.m-stage img{width:100%;height:100%;object-fit:cover}
+.m-stage img{width:100%;height:100%;object-fit:contain;box-sizing:border-box;padding:clamp(14px,3vw,54px)}
 .m-arr{position:absolute;top:50%;transform:translateY(-50%);width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:rgba(26,22,17,.42);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:#fff;cursor:pointer;display:grid;place-items:center;box-shadow:0 6px 18px rgba(0,0,0,.35);transition:background .2s,transform .2s;z-index:2}.m-arr:hover{background:rgba(26,22,17,.7);transform:translateY(-50%) scale(1.06)}.m-arr svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}.m-arr.prev{left:14px}.m-arr.next{right:14px}
 .m-count{position:absolute;bottom:14px;inset-inline-end:14px;background:rgba(33,29,24,.72);color:#fff;font-size:.66rem;font-weight:600;padding:5px 13px;border-radius:12px;z-index:2;backdrop-filter:blur(4px)}
 .m-thumbs{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;padding:14px 15px 10px}
 .m-thumbs::-webkit-scrollbar{height:6px}
 .m-thumbs::-webkit-scrollbar-thumb{background:var(--line);border-radius:3px}
-.m-thumbs img{width:52px;height:52px;object-fit:cover;border:2px solid var(--line);border-radius:10px;cursor:pointer;flex:none;transition:border-color .2s,box-shadow .2s,opacity .2s,transform .2s;opacity:.85}
+.m-thumbs img{width:52px;height:52px;object-fit:contain;box-sizing:border-box;padding:3px;background:var(--paper);border:2px solid var(--line);border-radius:10px;cursor:pointer;flex:none;transition:border-color .2s,box-shadow .2s,opacity .2s,transform .2s;opacity:.85}
 .m-thumbs img:hover{opacity:1;transform:scale(1.03)}
 .m-thumbs img.active{border-color:var(--terra);box-shadow:0 0 0 2px rgba(188,91,51,.22);opacity:1;transform:scale(1.03)}
 .m-info{padding:48px 44px 38px;display:flex;flex-direction:column}
@@ -2311,5 +2325,5 @@ revealObserve(document);
   </div>
 </div>
 
-<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a3eeff44bd504f8a',t:'MTc5MDA1NTg1OQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</body>
 </html>
