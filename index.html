@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<!-- ===== Ray Home Accessories — v5.1 · root folders + quick view: الصورة كاملة بدون قص + أبعاد متظبطة ===== -->
+<!-- ===== Ray Home Accessories — v5.3 · موبايل: هيدر كامل بكل الأيقونات + صورة الهيرو كاملة ===== -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="assets/fonts.css">
 <title>Ray Home Accessories — 3D Printed Warmth for Every Home</title>
@@ -73,6 +73,20 @@ nav a:hover::after{width:100%}
 .burger{display:none}
 @media (max-width:920px){nav ul{display:none}.burger{display:grid}}
 
+/* ================== v5.3 MOBILE FIXES — header + hero ================== */
+/* الهيدر: كل الأيقونات ظاهرة على الموبايل */
+@media (max-width:560px){
+  .nav .container{padding:0 14px}
+  .nav-inner{gap:8px;height:68px}
+  .logo{gap:8px;min-width:0}
+  .logo-emblem{width:36px;height:36px}
+  .l1{font-size:1.15rem}
+  .l2{display:none}
+  .nav-icons{gap:7px}
+  .icon-btn{width:37px;height:37px}
+  .lang-toggle{padding:6px 9px;font-size:.7rem}
+}
+
 /* ---------- mobile menu ---------- */
 .mobile-menu{position:fixed;inset:0;z-index:110;background:var(--cream);transform:translateX(100%);transition:transform .4s cubic-bezier(.22,.8,.3,1);display:flex;flex-direction:column;padding:18px 26px 30px;overflow-y:auto}
 [dir="rtl"] .mobile-menu{transform:translateX(-100%)}
@@ -89,6 +103,14 @@ nav a:hover::after{width:100%}
 .hero .h-img img{width:100%;height:100%;object-fit:cover}
 .hero::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(250,247,241,.97) 0%,rgba(250,247,241,.86) 34%,rgba(250,247,241,.25) 66%,rgba(250,247,241,.05) 100%)}
 [dir="rtl"] .hero::after{background:linear-gradient(270deg,rgba(250,247,241,.97) 0%,rgba(250,247,241,.86) 34%,rgba(250,247,241,.25) 66%,rgba(250,247,241,.05) 100%)}
+/* v5.3 الصورة الرئيسية على الموبايل: كاملة فوق والكلام تحتها */
+@media (max-width:720px){
+  .hero{min-height:0;display:block}
+  .hero .h-img{position:relative;inset:auto;transform:none}
+  .hero .h-img img{width:100%;height:auto;object-fit:contain}
+  .hero::after{display:none}
+  .hero-txt{padding:36px 0 46px}
+}
 .hero-txt{position:relative;z-index:2;max-width:640px;padding:100px 0}
 #heroTitle{font-family:var(--serif);font-size:clamp(2.6rem,5.2vw,4.1rem);font-weight:600;line-height:1.06;letter-spacing:-.01em}
 #heroTitle em{font-style:italic;color:var(--terra)}
@@ -269,10 +291,10 @@ nav a:hover::after{width:100%}
 /* ---------- full-page product view ---------- */
 #modal{padding:0}
 #colorModal{z-index:140}
-#modal .m-box{max-width:none;width:100%;height:100%;max-height:100%;border:none;border-radius:0;box-shadow:none;direction:ltr;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);transform:none;overflow:hidden}
-#modal .m-side{border-inline-end:1px solid var(--line)}
+#modal .m-box{max-width:none;width:100%;height:100%;max-height:100%;border:none;border-radius:0;box-shadow:none;direction:ltr;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);grid-template-rows:minmax(0,1fr);transform:none;overflow:hidden}
+#modal .m-side{border-inline-end:1px solid var(--line);min-height:0}
 #modal .m-stage{aspect-ratio:auto;flex:1;min-height:340px;background:var(--cream-2)}
-#modal .m-info{overflow-y:auto;align-items:center}
+#modal .m-info{overflow-y:auto;align-items:center;min-height:0}
 #modal .m-info > *{width:100%;max-width:640px}
 #modal .m-info h3{font-size:clamp(1.75rem,2.6vw,2.5rem);margin-bottom:14px}
 #modal .m-price{margin-bottom:22px}
@@ -292,7 +314,7 @@ nav a:hover::after{width:100%}
 .m-dims-lbl{flex:none;font-size:.62rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);background:var(--cream-2);padding:4px 9px;border-radius:8px}
 .m-dims-val{font-weight:600;color:var(--ink)}
 @media (max-width:720px){
-  #modal .m-box{grid-template-columns:1fr;overflow-y:auto}
+  #modal .m-box{grid-template-columns:1fr;grid-template-rows:auto;overflow-y:auto}
   #modal .m-stage{aspect-ratio:1/1;flex:none;min-height:0}
   #modal .m-side{border-inline-end:none;border-bottom:1px solid var(--line)}
   #modal .m-info{overflow:visible}
@@ -2118,8 +2140,7 @@ function mGallery(id){
   if (many) {
     ths.innerHTML = list.map((src,i) => `<button class="m-th${i===mIdx?' on':''}" type="button" onclick="mThumb('${id}',${i})"><img data-pid="${id}" src="${src}" onerror="imgFall(this)" alt=""></button>`).join('');
     ths.style.display = 'flex';
-    const onEl = ths.querySelector('.m-th.on');
-    if (onEl && typeof onEl.scrollIntoView === 'function') { try { onEl.scrollIntoView({ inline:'center', block:'nearest' }); } catch(e) {} }
+    /* v5.2: no scrollIntoView here — it shifted the whole modal on photo change */
   } else { ths.innerHTML = ''; ths.style.display = 'none'; }
 }
 function mThumb(id, i){ mIdx = i; mGallery(id); }
