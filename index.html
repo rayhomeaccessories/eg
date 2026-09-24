@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<!-- ===== Ray Home Accessories — v5.28 · Align — محاذاة صور ON بالمحتوى (كونيو +1.09 · ملتوية +1.03) + صور OFF بقت main.jpg للـ6 لمبات ===== -->
+<!-- ===== Ray Home Accessories — v5.31 · Magic5 — مجموعة السحر (النص + السهم + الزرار الدائري) في نص البار ===== -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="assets/fonts.css">
 <title>Ray Home Accessories — 3D Printed Warmth for Every Home</title>
@@ -45,13 +45,22 @@ body.xlocked .progress{opacity:0}
 .ann-track{display:inline-flex;white-space:nowrap;padding:9px 0}
 .ann-track b{color:#F2D8C4}
 .top-stack{position:sticky;top:0;z-index:100}
-/* v5.26: بار السحر — زرار الإضاءة ثابت تحت الهيدر + خلفية الصفحة بتقلب warm بهدوء */
-.magic-bar{display:flex;justify-content:center;padding:8px 12px;background:rgba(250,247,241,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line);transition:background 2s ease,border-color 2s ease}
-.magic-btn{display:inline-flex;align-items:center;gap:9px;border:1.5px solid var(--terra);color:var(--terra);background:transparent;border-radius:44px;padding:8px 22px;font-size:.78rem;font-weight:700;letter-spacing:.04em;cursor:pointer;transition:background 1.4s ease,color 1.4s ease,box-shadow 1.4s ease,border-color 1.4s ease,transform .2s ease}
-.magic-btn:hover{transform:translateY(-1px)}
-.magic-btn .mb-ico{width:16px;height:16px;flex:none}
+/* v5.29: زرار السحر الدائري (لمبة مطفية → متوهجة) + كتابة يدوية Kalam/Ruqaa + سهم مموج */
+.magic-bar{display:flex;justify-content:center;padding:9px 12px;background:rgba(250,247,241,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line);transition:background 2s ease,border-color 2s ease}
+.magic-wrap{display:flex;align-items:center;gap:13px;max-width:96vw}
+.magic-btn{flex:none;width:56px;height:56px;border-radius:50%;border:1.5px solid var(--terra);background:var(--paper);color:var(--terra);display:grid;place-items:center;cursor:pointer;transition:background 1.4s ease,color 1.4s ease,box-shadow 1.4s ease,border-color 1.4s ease,transform .25s ease}
+.magic-btn:hover{transform:scale(1.07) rotate(-6deg)}
+.magic-btn:active{transform:scale(.95)}
+.magic-btn .mb-ico{width:25px;height:25px;fill:transparent;transition:fill 1.4s ease,filter 1.4s ease}
+html.lights-on .magic-btn{background:radial-gradient(circle at 50% 40%,#FFE9BE 0%,#F0B268 55%,#C25B33 100%);border-color:transparent;color:#FFF6E3;box-shadow:0 0 30px rgba(233,166,91,.6),0 0 80px rgba(233,166,91,.28)}
+html.lights-on .magic-btn .mb-ico{fill:#FFEFC9;filter:drop-shadow(0 0 6px rgba(255,230,170,.95))}
+.mb-arrow{flex:none;width:88px;height:40px;color:var(--terra);opacity:.9}
+html[dir="rtl"] .mb-arrow{transform:scaleX(-1)}
+@media (max-width:560px){.mb-arrow{width:52px;height:26px}.mb-txt{font-size:1.02rem}html[dir="rtl"] .mb-txt{font-size:1.12rem}.magic-wrap{gap:9px}}
+.mb-txt{font-family:'Kalam','Aref Ruqaa','Cairo',cursive;font-size:1.22rem;font-weight:700;color:var(--terra);transform:rotate(-1.5deg);line-height:1.2;white-space:nowrap}
+html[dir="rtl"] .mb-txt{font-size:1.32rem;transform:rotate(1.5deg)}
+html.lights-on .mb-txt,html.lights-on .mb-arrow{color:#F6C98F}
 html.lights-on .magic-bar{background:rgba(58,45,34,.95);border-bottom-color:rgba(255,215,170,.13)}
-html.lights-on .magic-btn{background:linear-gradient(135deg,#E9A65B,#C25B33);border-color:transparent;color:#fff;box-shadow:0 0 26px rgba(233,166,91,.5)}
 html.lights-on{--cream:#F6EDDD;--cream-2:#F2E5CF;--paper:#FFF6E8}
 html.lights-on header.nav{background:rgba(246,237,221,.93)}
 
@@ -726,10 +735,16 @@ if (typeof IntersectionObserver === 'undefined') {
   </div>
 </header>
 <div class="magic-bar" id="magicBar">
-  <button class="magic-btn" id="magicBtn" type="button" onclick="toggleLights()">
-    <svg class="mb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-4.2 10.3c.7.6 1.2 1.5 1.4 2.7h5.6c.2-1.2.7-2.1 1.4-2.7A6 6 0 0 0 12 3z"/></svg>
-    <span data-i18n="magicBtn"></span>
-  </button>
+  <div class="magic-wrap">
+    <span class="mb-txt" data-i18n="magicBtn"></span>
+    <svg class="mb-arrow" viewBox="0 0 104 46" fill="none" aria-hidden="true">
+      <path d="M6 27 C 18 9, 32 39, 48 27 S 74 11, 90 23" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/>
+      <path d="M81 14.5 L 91.5 23.5 L 79 29.5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <button class="magic-btn" id="magicBtn" type="button" onclick="toggleLights()" aria-label="Lights">
+      <svg class="mb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-4.2 10.3c.7.6 1.2 1.5 1.4 2.7h5.6c.2-1.2.7-2.1 1.4-2.7A6 6 0 0 0 12 3z"/></svg>
+    </button>
+  </div>
 </div>
 </div>
 
