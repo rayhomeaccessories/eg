@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<!-- ===== Ray Home Accessories — v5.31 · Magic5 — مجموعة السحر (النص + السهم + الزرار الدائري) في نص البار ===== -->
+<!-- ===== Ray Home Accessories — v5.36 · Lights — إصلاح معرض السحر: طبقة lit-layer فوق صور المعرض (كانت مش مضافة) · صور ON جديدة بنفس أبعاد OFF بالظبط لـ chain/008/twisted (الترانزيشن = اللمبة بتتنور من غير ما الصورة تكبر أو تتغير) · صور كاتيجوريز جديدة زواياها حادة (التدوير كان مخبوز جوه الصور) ===== -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="assets/fonts.css">
 <title>Ray Home Accessories — 3D Printed Warmth for Every Home</title>
@@ -39,28 +39,33 @@ button{font-family:inherit}
 .container{max-width:1240px;margin:0 auto;padding:0 24px}
 
 /* ---------- progress + announcement ---------- */
-.progress{position:fixed;top:0;inset-inline-start:0;height:3px;width:0;background:linear-gradient(90deg,var(--terra),var(--terra-soft));z-index:200;transition:opacity .3s}
-body.xlocked .progress{opacity:0}
 .ann{background:var(--dark);color:#EDE4D6;font-size:.7rem;letter-spacing:.05em;overflow:hidden;white-space:nowrap;text-align:center}
 .ann-track{display:inline-flex;white-space:nowrap;padding:9px 0}
 .ann-track b{color:#F2D8C4}
 .top-stack{position:sticky;top:0;z-index:100}
-/* v5.29: زرار السحر الدائري (لمبة مطفية → متوهجة) + كتابة يدوية Kalam/Ruqaa + سهم مموج */
-.magic-bar{display:flex;justify-content:center;padding:9px 12px;background:rgba(250,247,241,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line);transition:background 2s ease,border-color 2s ease}
-.magic-wrap{display:flex;align-items:center;gap:13px;max-width:96vw}
-.magic-btn{flex:none;width:56px;height:56px;border-radius:50%;border:1.5px solid var(--terra);background:var(--paper);color:var(--terra);display:grid;place-items:center;cursor:pointer;transition:background 1.4s ease,color 1.4s ease,box-shadow 1.4s ease,border-color 1.4s ease,transform .25s ease}
+/* v5.33: زرار السحر داخل قسم Magic Gallery */
+.mg-trigger{display:flex;align-items:center;justify-content:center;gap:13px;margin:4px 0 32px;flex-wrap:wrap}
+.magic-btn{flex:none;width:58px;height:58px;border-radius:50%;border:1.5px solid var(--terra);background:var(--paper);color:var(--terra);display:grid;place-items:center;cursor:pointer;transition:background 1.4s ease,color 1.4s ease,box-shadow 1.4s ease,border-color 1.4s ease,transform .25s ease}
 .magic-btn:hover{transform:scale(1.07) rotate(-6deg)}
 .magic-btn:active{transform:scale(.95)}
-.magic-btn .mb-ico{width:25px;height:25px;fill:transparent;transition:fill 1.4s ease,filter 1.4s ease}
-html.lights-on .magic-btn{background:radial-gradient(circle at 50% 40%,#FFE9BE 0%,#F0B268 55%,#C25B33 100%);border-color:transparent;color:#FFF6E3;box-shadow:0 0 30px rgba(233,166,91,.6),0 0 80px rgba(233,166,91,.28)}
-html.lights-on .magic-btn .mb-ico{fill:#FFEFC9;filter:drop-shadow(0 0 6px rgba(255,230,170,.95))}
-.mb-arrow{flex:none;width:88px;height:40px;color:var(--terra);opacity:.9}
-html[dir="rtl"] .mb-arrow{transform:scaleX(-1)}
-@media (max-width:560px){.mb-arrow{width:52px;height:26px}.mb-txt{font-size:1.02rem}html[dir="rtl"] .mb-txt{font-size:1.12rem}.magic-wrap{gap:9px}}
+.magic-btn .mb-ico{width:26px;height:26px;fill:transparent;transition:fill 1.4s ease,filter 1.4s ease}
+.magic-btn.pulse{animation:mgPulse 1.7s ease-in-out infinite}
+@keyframes mgPulse{0%,100%{box-shadow:0 0 0 0 rgba(194,91,51,.45)}55%{box-shadow:0 0 0 15px rgba(194,91,51,0)}}
+.mb-arrow{flex:none;width:84px;height:38px;color:var(--terra);opacity:.9}
 .mb-txt{font-family:'Kalam','Aref Ruqaa','Cairo',cursive;font-size:1.22rem;font-weight:700;color:var(--terra);transform:rotate(-1.5deg);line-height:1.2;white-space:nowrap}
 html[dir="rtl"] .mb-txt{font-size:1.32rem;transform:rotate(1.5deg)}
-html.lights-on .mb-txt,html.lights-on .mb-arrow{color:#F6C98F}
-html.lights-on .magic-bar{background:rgba(58,45,34,.95);border-bottom-color:rgba(255,215,170,.13)}
+html[dir="rtl"] .mb-arrow{transform:scaleX(-1)}
+html.lights-on .mb-txt,html.lights-on .mb-arrow{color:#B98655}
+html.lights-on .magic-btn{background:radial-gradient(circle at 50% 40%,#FFE9BE 0%,#F0B268 55%,#C25B33 100%);border-color:transparent;color:#FFF6E3;box-shadow:0 0 30px rgba(233,166,91,.6),0 0 80px rgba(233,166,91,.3)}
+html.lights-on .magic-btn .mb-ico{fill:#FFEFC9;filter:drop-shadow(0 0 6px rgba(255,230,170,.95))}
+.mg-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
+@media (max-width:720px){.mg-grid{grid-template-columns:repeat(3,1fr);gap:10px}.mb-arrow{width:52px;height:26px}.mb-txt{font-size:1.02rem}html[dir="rtl"] .mb-txt{font-size:1.12rem}.mg-trigger{gap:9px}}
+.mg-tile{position:relative;aspect-ratio:3/4;overflow:hidden;border-radius:14px;background:var(--cream-2);cursor:pointer;transition:transform .3s ease,box-shadow 2s ease}
+.mg-tile:hover{transform:translateY(-4px)}
+.mg-tile img{width:100%;height:100%;object-fit:cover;display:block}
+html.lights-on .mg-tile{box-shadow:0 10px 34px rgba(238,178,88,.42)}
+.mg-nm{position:absolute;inset-inline:0;bottom:0;padding:26px 8px 9px;background:linear-gradient(transparent,rgba(22,16,10,.74));color:#fff;font-size:.64rem;font-weight:700;text-align:center;letter-spacing:.02em;pointer-events:none}
+html[dir="rtl"] .mb-arrow{transform:scaleX(-1)}
 html.lights-on{--cream:#F6EDDD;--cream-2:#F2E5CF;--paper:#FFF6E8}
 html.lights-on header.nav{background:rgba(246,237,221,.93)}
 
@@ -85,14 +90,17 @@ body::before{content:"";position:fixed;inset:0;background:radial-gradient(1250px
 html.lights-on body::before{opacity:1}
 html.lights-on .card .thumb{box-shadow:0 8px 30px rgba(238,178,88,.38)}
 .card .thumb{transition:box-shadow 2s ease}
-.thumb img.lit-layer,.m-slide img.lit-layer,.c-img img.lit-layer,.a-img img.lit-layer,.m-th img.lit-layer{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.9s ease,transform 1.9s cubic-bezier(.22,.8,.3,1);pointer-events:none}
+.thumb img.lit-layer,.m-slide img.lit-layer,.c-img img.lit-layer,.a-img img.lit-layer,.m-th img.lit-layer,.mg-tile img.lit-layer{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.9s ease,transform 1.9s cubic-bezier(.22,.8,.3,1);pointer-events:none}
 html.lights-on img.lit-layer{opacity:1}
 .m-th{position:relative}
 .m-th img.lit-layer{inset:2px;width:calc(100% - 4px);height:calc(100% - 4px);border-radius:8px}
 /* v5.27: طبقة النور في نافذة المنتج بنفس أبعاد الصورة الأساسية بالظبط — contain + نفس الفريم مش cover */
 .m-slide img.lit-layer{object-fit:contain;box-sizing:border-box;padding:14px;background:transparent}
-.lang-toggle{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line);background:var(--paper);border-radius:22px;padding:8px 14px;font-size:.78rem;font-weight:700;cursor:pointer;color:var(--ink);transition:border-color .2s,box-shadow .2s}
+.lang-toggle{display:inline-flex;align-items:center;gap:3px;border:1px solid var(--line);background:var(--paper);border-radius:16px;padding:3px;cursor:pointer;transition:border-color .2s,box-shadow .2s}
 .lang-toggle:hover{border-color:var(--ink);box-shadow:var(--shadow-sm)}
+.lg-seg{display:inline-flex;align-items:center;gap:5px;padding:5px 9px;border-radius:12px;font-size:.72rem;font-weight:800;color:var(--ink-faint);transition:background .2s,color .2s}
+.lg-seg.on{background:var(--ink);color:var(--cream)}
+.lg-seg svg{width:17px;height:11.5px;border-radius:2px;box-shadow:0 0 0 1px rgba(0,0,0,.14);flex:none}
 .lang-toggle .flg{flex:none;border-radius:3px;box-shadow:0 0 0 1px rgba(0,0,0,.15)}
 .icon-btn{position:relative;width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:var(--paper);display:grid;place-items:center;cursor:pointer;color:var(--ink);transition:border-color .2s,transform .2s}
 .icon-btn:hover{border-color:var(--ink);transform:translateY(-1px)}
@@ -143,13 +151,18 @@ html.lights-on img.lit-layer{opacity:1}
 .hero .h-img img{width:100%;height:100%;object-fit:cover}
 .hero::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(250,247,241,.97) 0%,rgba(250,247,241,.86) 34%,rgba(250,247,241,.25) 66%,rgba(250,247,241,.05) 100%)}
 [dir="rtl"] .hero::after{background:linear-gradient(270deg,rgba(250,247,241,.97) 0%,rgba(250,247,241,.86) 34%,rgba(250,247,241,.25) 66%,rgba(250,247,241,.05) 100%)}
-/* v5.3 الصورة الرئيسية على الموبايل: كاملة فوق والكلام تحتها */
+/* v5.33: على الموبايل الكلام مطبوع طبقة فوق طبقة فوق الصورة نفسها */
 @media (max-width:720px){
-  .hero{min-height:0;display:block}
-  .hero .h-img{position:relative;inset:auto;transform:none}
-  .hero .h-img img{width:100%;height:auto;object-fit:contain}
+  .hero{min-height:76vh;display:flex;align-items:flex-end}
+  .hero .h-img{position:absolute;inset:0;transform:none}
+  .hero .h-img img{width:100%;height:100%;object-fit:cover}
   .hero::after{display:none}
-  .hero-txt{padding:36px 0 46px}
+  .hero-txt{position:relative;z-index:2;width:100%;max-width:none;padding:44px 20px 28px;background:linear-gradient(transparent,rgba(18,13,8,.78))}
+  #heroTitle{font-size:clamp(1.85rem,8.2vw,2.6rem);color:#fff}
+  #heroTitle em{color:#F5C99B}
+  #heroSub{color:rgba(255,246,236,.9);margin:12px 0 18px;font-size:.88rem}
+  .hero-cta .btn.ghost{border-color:#fff;color:#fff}
+  .hero-cta .btn{padding:12px 20px;font-size:.76rem}
 }
 .hero-txt{position:relative;z-index:2;max-width:640px;padding:100px 0}
 #heroTitle{font-family:var(--serif);font-size:clamp(2.6rem,5.2vw,4.1rem);font-weight:600;line-height:1.06;letter-spacing:-.01em}
@@ -217,7 +230,13 @@ html.lights-on img.lit-layer{opacity:1}
 .pgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
 .pgrid.two{grid-template-columns:repeat(2,1fr);max-width:680px;margin:0 auto}
 @media (max-width:1020px){.pgrid{grid-template-columns:repeat(2,1fr)}}
-@media (max-width:560px){.pgrid{grid-template-columns:repeat(2,1fr);gap:12px}}
+@media (max-width:560px){
+.pgrid{grid-template-columns:repeat(2,1fr);gap:12px}
+.card .thumb{aspect-ratio:4/5}
+/* v5.32: موبايل — 8 دوائر ألوان بس + زرار كل الألوان */
+.card .c-dots .c-b:nth-child(n+9){display:none}
+.card .c-more{font-size:.6rem;padding:3px 8px;border:1px dashed rgba(143,61,30,.55);border-radius:20px;text-decoration:none;white-space:nowrap}
+}
 /* compact cards on small screens */
 @media (max-width:560px){
 .card h4{font-size:.92rem;margin:10px 12px 2px}
@@ -649,27 +668,35 @@ footer a:hover{color:#fff}
 html[dir="rtl"] .a-fab{right:auto;left:22px}
 html[dir="rtl"] .lang-en{display:none}
 html[dir="ltr"] .lang-ar{display:none}
-.catcar{position:relative;display:flex;align-items:center;gap:14px;margin-top:34px}
-.cc-track{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 4px 16px;flex:1;min-width:0;scrollbar-width:none}
-.cc-track::-webkit-scrollbar{display:none}
-@media (min-width:1100px){.cc-track{justify-content:center}}
-.cc-card{flex:0 0 252px;scroll-snap-align:center;background:var(--paper);border:1px solid var(--line);border-radius:22px;overflow:hidden;text-decoration:none;color:var(--ink);transition:transform .3s,box-shadow .3s,border-color .3s;display:flex;flex-direction:column}
-.cc-card:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:transparent}
-.cc-img img{width:100%;height:295px;object-fit:cover;display:block}
-.cc-meta{padding:18px 20px 20px;display:flex;flex-direction:column;gap:7px;align-items:flex-start}
-.cc-sub{font-size:.62rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-faint)}
-.cc-card h3{font-family:var(--serif);font-size:1.35rem;font-weight:600}
-.cc-from{font-size:.82rem;color:var(--terra);font-weight:700}
-.cc-card .pill{margin-top:6px;border-color:var(--ink);color:var(--ink);padding:9px 18px;font-size:.72rem;background:transparent}
-.cc-nav{flex:none;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--paper);display:grid;place-items:center;cursor:pointer;color:var(--ink);box-shadow:var(--shadow-sm);transition:background .2s,transform .2s;z-index:2}
-.cc-nav:hover{background:var(--ink);color:var(--cream);transform:scale(1.06)}
-.cc-nav:disabled{opacity:.3;pointer-events:none}
-.cc-nav svg{width:17px;height:17px;stroke:currentColor;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
-html[dir="rtl"] .cc-nav svg{transform:scaleX(-1)}
-.cc-dots{display:flex;justify-content:center;gap:8px;margin-top:4px}
-.cc-dot{width:8px;height:8px;border-radius:50%;background:var(--line);border:none;padding:0;cursor:pointer;transition:background .2s,width .25s}
-.cc-dot.on{background:var(--terra);width:22px;border-radius:4px}
-@media (max-width:640px){.cc-card{flex-basis:76%}.cc-nav{display:none}}
+/* v5.35 — الأقسام: مستطيلات حوافها حادة في شريط بيتقلب يمين وشمال + peek صور عشوائية بألوانها */
+.cg-car{position:relative;display:flex;align-items:center;gap:14px;margin-top:38px}
+.cg-strip{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 2px 8px;flex:1;min-width:0;scrollbar-width:none}
+.cg-strip::-webkit-scrollbar{display:none}
+.cg-item{flex:0 0 280px;scroll-snap-align:center;display:flex;flex-direction:column;align-items:center;gap:6px;color:var(--ink)}
+.cg-frame{position:relative;width:100%;aspect-ratio:4/5;overflow:hidden;background:var(--cream-2);cursor:pointer}
+.cg-cat{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s ease,opacity .5s ease}
+.cg-item:hover .cg-cat{transform:scale(1.04)}
+.cg-peek{position:absolute;inset:0;opacity:0;transition:opacity .45s ease;pointer-events:none}
+.cg-item.peeking .cg-peek{opacity:1}
+.cg-item.peeking .cg-cat{opacity:0}
+.cg-pk{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .55s ease,transform 7s linear}
+.cg-pk.show{opacity:1;transform:scale(1.07)}
+.cg-cap{position:absolute;top:10px;inset-inline-start:10px;display:inline-flex;align-items:center;gap:6px;background:rgba(20,15,9,.66);color:#fff;padding:5px 10px;font-size:.6rem;font-weight:700;letter-spacing:.04em;max-width:calc(100% - 20px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cg-cap i{flex:none;width:9px;height:9px;background:#fff;outline:1.5px solid rgba(255,255,255,.75);outline-offset:1.5px}
+.cg-go{position:absolute;bottom:12px;inset-inline:12px;border:none;background:var(--ink);color:var(--cream);padding:11px 14px;font-family:inherit;font-size:.72rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:7px;opacity:0;transform:translateY(10px);pointer-events:none;transition:opacity .35s ease,transform .35s ease,background .2s}
+.cg-item.peeking .cg-go{opacity:1;transform:translateY(0);pointer-events:auto}
+.cg-go:hover{background:var(--terra)}
+.cg-arr{transition:transform .25s}
+.cg-go:hover .cg-arr{transform:translateX(3px)}
+html[dir="rtl"] .cg-arr{transform:scaleX(-1)}
+html[dir="rtl"] .cg-go:hover .cg-arr{transform:scaleX(-1) translateX(3px)}
+.cg-sub{font-size:.62rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--terra);margin-top:8px}
+.cg-name{font-family:var(--serif);font-size:1.22rem;font-weight:600;line-height:1.2}
+.cg-nav{flex:none;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--paper);display:grid;place-items:center;cursor:pointer;color:var(--ink);box-shadow:var(--shadow-sm);transition:background .2s,transform .2s;z-index:2}
+.cg-nav:hover{background:var(--ink);color:var(--cream);transform:scale(1.06)}
+.cg-nav svg{width:17px;height:17px;stroke:currentColor;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+html[dir="rtl"] .cg-nav svg{transform:scaleX(-1)}
+@media (max-width:900px){.cg-strip{gap:12px}.cg-item{flex-basis:74%}.cg-nav{display:none}.cg-name{font-size:1.1rem}.cg-sub{font-size:.56rem;letter-spacing:.14em;margin-top:6px}}
 /* بوكس المقاسات بشكل أحسن */
 .m-dims{display:flex;align-items:center;gap:11px;margin-top:14px;padding:12px 15px;background:linear-gradient(120deg,var(--cream-2),var(--paper) 72%);border:1px solid var(--line);border-radius:14px;font-size:.84rem;box-shadow:0 1px 2px rgba(60,48,32,.05)}
 .m-dims-ico{width:17px;height:17px;stroke:var(--terra);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
@@ -699,7 +726,6 @@ if (typeof IntersectionObserver === 'undefined') {
 </head>
 <body>
 
-<div class="progress" id="progress"></div>
 <div class="top-stack">
 <div class="ann"><div class="ann-track" id="announceTrack"></div></div>
 
@@ -723,7 +749,10 @@ if (typeof IntersectionObserver === 'undefined') {
       </ul>
     </nav>
     <div class="nav-icons">
-      <button class="lang-toggle" id="langToggle" aria-label="Switch language"><span class="lg-badge ar">ع</span>العربية</button>
+      <button class="lang-toggle" id="langToggle" aria-label="Switch language">
+        <span class="lg-seg ar"><svg viewBox="0 0 18 12" aria-hidden="true"><rect width="18" height="4" fill="#CE1126"/><rect y="4" width="18" height="4" fill="#F5F5F0"/><rect y="8" width="18" height="4" fill="#262622"/></svg>ع</span>
+        <span class="lg-seg en"><svg viewBox="0 0 18 12" aria-hidden="true"><rect width="18" height="12" fill="#B22234"/><g fill="#F5F5F0"><rect y="1.4" width="18" height="1.2"/><rect y="3.8" width="18" height="1.2"/><rect y="6.2" width="18" height="1.2"/><rect y="8.6" width="18" height="1.2"/></g><rect width="7.6" height="6.2" fill="#3C3B6E"/><g fill="#F5F5F0"><circle cx="1.9" cy="1.7" r=".55"/><circle cx="5.7" cy="1.7" r=".55"/><circle cx="1.9" cy="4.6" r=".55"/><circle cx="5.7" cy="4.6" r=".55"/></g></svg>En</span>
+      </button>
       <button class="icon-btn" aria-label="Ray Assistant" onclick="openAssist()">
         <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.35-4.35"/></svg>
       </button>
@@ -734,18 +763,7 @@ if (typeof IntersectionObserver === 'undefined') {
     </div>
   </div>
 </header>
-<div class="magic-bar" id="magicBar">
-  <div class="magic-wrap">
-    <span class="mb-txt" data-i18n="magicBtn"></span>
-    <svg class="mb-arrow" viewBox="0 0 104 46" fill="none" aria-hidden="true">
-      <path d="M6 27 C 18 9, 32 39, 48 27 S 74 11, 90 23" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/>
-      <path d="M81 14.5 L 91.5 23.5 L 79 29.5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-    <button class="magic-btn" id="magicBtn" type="button" onclick="toggleLights()" aria-label="Lights">
-      <svg class="mb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-4.2 10.3c.7.6 1.2 1.5 1.4 2.7h5.6c.2-1.2.7-2.1 1.4-2.7A6 6 0 0 0 12 3z"/></svg>
-    </button>
-  </div>
-</div>
+
 </div>
 
 <div class="mobile-menu" id="mobileMenu">
@@ -789,44 +807,77 @@ if (typeof IntersectionObserver === 'undefined') {
 </section>
 
 <!-- ================== v5.7 — CATEGORIES CAROUSEL ================== -->
-<section id="cats" style="padding:74px 0 24px">
+<section id="cats" style="padding:84px 0 26px">
   <div class="container">
     <div class="sec-head reveal" style="text-align:center">
       <div class="over" data-i18n="catsOver"></div>
       <h2 class="bs-title"><span class="bs-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></span><span data-i18n="catsH"></span></h2>
       <div class="rule"></div>
     </div>
-    <div class="catcar reveal">
-      <button class="cc-nav" id="ccPrev" type="button" aria-label="Previous category"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button>
-      <div class="cc-track" id="ccTrack">
-        <a class="cc-card" href="#shop" onclick="goCat('desk')">
-          <div class="cc-img"><img src="assets/catv2-desk.jpg" alt="Table lamps collection"></div>
-          <div class="cc-meta"><div class="cc-sub" data-i18n="bDeskSub"></div><h3 data-i18n="bDesk"></h3>
-            <div class="cc-from"><span class="lang-ar">يبدأ من 1,700 ج.م</span><span class="lang-en">From LE 1,700</span></div>
-            <span class="pill" data-i18n="orderNow"></span></div>
-        </a>
-        <a class="cc-card" href="#shop" onclick="goCat('hanging')">
-          <div class="cc-img"><img src="assets/catv2-hang.jpg" alt="Pendant lamps collection"></div>
-          <div class="cc-meta"><div class="cc-sub" data-i18n="bHangSub"></div><h3 data-i18n="bHang"></h3>
-            <div class="cc-from"><span class="lang-ar">يبدأ من 1,000 ج.م</span><span class="lang-en">From LE 1,000</span></div>
-            <span class="pill" data-i18n="orderNow"></span></div>
-        </a>
-        <a class="cc-card" href="#shop" onclick="goCat('vases')">
-          <div class="cc-img"><img src="assets/catv2-vases.jpg" alt="Vases collection"></div>
-          <div class="cc-meta"><div class="cc-sub" data-i18n="bColl"></div><h3 data-i18n="bVases"></h3>
-            <div class="cc-from"><span class="lang-ar">يبدأ من 1,200 ج.م</span><span class="lang-en">From LE 1,200</span></div>
-            <span class="pill" data-i18n="explore"></span></div>
-        </a>
-        <a class="cc-card" href="#shop" onclick="goCat('planters')">
-          <div class="cc-img"><img src="assets/catv2-plant.jpg" alt="Planter pots collection"></div>
-          <div class="cc-meta"><div class="cc-sub" data-i18n="bPlantSub"></div><h3 data-i18n="bPlant"></h3>
-            <div class="cc-from"><span class="lang-ar">يبدأ من 1,100 ج.م</span><span class="lang-en">From LE 1,100</span></div>
-            <span class="pill" data-i18n="explore"></span></div>
-        </a>
+    <div class="cg-car reveal">
+      <button class="cg-nav" id="cgPrev" type="button" aria-label="Previous category"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button>
+      <div class="cg-strip" id="cgStrip">
+        <div class="cg-item" data-cat="desk">
+          <div class="cg-frame">
+            <img class="cg-cat" src="assets/catv3-desk.jpg" alt="Table lamps collection" loading="lazy">
+            <div class="cg-peek" aria-hidden="true"><img class="cg-pk a" alt=""><img class="cg-pk b" alt=""><div class="cg-cap"><i></i><span></span></div></div>
+            <button class="cg-go" type="button"></button>
+          </div>
+          <div class="cg-sub" data-i18n="bDeskSub"></div>
+          <div class="cg-name" data-i18n="bDesk"></div>
+        </div>
+        <div class="cg-item" data-cat="hanging">
+          <div class="cg-frame">
+            <img class="cg-cat" src="assets/catv3-hang.jpg" alt="Pendant lamps collection" loading="lazy">
+            <div class="cg-peek" aria-hidden="true"><img class="cg-pk a" alt=""><img class="cg-pk b" alt=""><div class="cg-cap"><i></i><span></span></div></div>
+            <button class="cg-go" type="button"></button>
+          </div>
+          <div class="cg-sub" data-i18n="bHangSub"></div>
+          <div class="cg-name" data-i18n="bHang"></div>
+        </div>
+        <div class="cg-item" data-cat="vases">
+          <div class="cg-frame">
+            <img class="cg-cat" src="assets/catv3-vases.jpg" alt="Vases collection" loading="lazy">
+            <div class="cg-peek" aria-hidden="true"><img class="cg-pk a" alt=""><img class="cg-pk b" alt=""><div class="cg-cap"><i></i><span></span></div></div>
+            <button class="cg-go" type="button"></button>
+          </div>
+          <div class="cg-sub" data-i18n="bColl"></div>
+          <div class="cg-name" data-i18n="bVases"></div>
+        </div>
+        <div class="cg-item" data-cat="planters">
+          <div class="cg-frame">
+            <img class="cg-cat" src="assets/catv3-plant.jpg" alt="Planter pots collection" loading="lazy">
+            <div class="cg-peek" aria-hidden="true"><img class="cg-pk a" alt=""><img class="cg-pk b" alt=""><div class="cg-cap"><i></i><span></span></div></div>
+            <button class="cg-go" type="button"></button>
+          </div>
+          <div class="cg-sub" data-i18n="bPlantSub"></div>
+          <div class="cg-name" data-i18n="bPlant"></div>
+        </div>
       </div>
-      <button class="cc-nav" id="ccNext" type="button" aria-label="Next category"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></button>
+      <button class="cg-nav" id="cgNext" type="button" aria-label="Next category"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></button>
     </div>
-    <div class="cc-dots" id="ccDots"></div>
+  </div>
+</section>
+
+<!-- ================== v5.33 — RAY'S MAGIC GALLERY ================== -->
+<section id="magicGallery" style="padding:80px 0 70px">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="over" data-i18n="mgOver"></div>
+      <h2 data-i18n="mgTitle"></h2>
+      <div class="rule"></div>
+    </div>
+    <div class="mg-trigger reveal">
+      <span class="mb-txt" data-i18n="magicBtn"></span>
+      <svg class="mb-arrow" viewBox="0 0 104 46" fill="none" aria-hidden="true">
+        <path d="M6 27 C 18 9, 32 39, 48 27 S 74 11, 90 23" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/>
+        <path d="M81 14.5 L 91.5 23.5 L 79 29.5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <button class="magic-btn pulse" id="magicBtn" type="button" onclick="toggleLights()" aria-label="Lights">
+        <svg class="mb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-4.2 10.3c.7.6 1.2 1.5 1.4 2.7h5.6c.2-1.2.7-2.1 1.4-2.7A6 6 0 0 0 12 3z"/></svg>
+      </button>
+    </div>
+    <div class="mg-grid" id="mgGrid"></div>
   </div>
 </section>
 
@@ -1167,7 +1218,7 @@ const I18N = {
     announce: '✦  Free shipping on <b>all orders</b> across Egypt',
     location: 'New Cairo',
     'nav.home':'Home','nav.cats':'Categories','nav.desk':'Table Lamp','nav.hanging':'Pendent Lamp','nav.vases':'Vases','nav.planters':'Planter Pots','nav.contact':'Contact',
-    catsOver:'Everything in one place',catsH:'All Categories',
+    catsOver:'Everything in one place',catsH:'All Categories',cgGo:'Go to',
     heroTitle: 'Warmth for your home, <em>printed layer by layer</em>',
     heroSub: 'Table lamps, pendant lamps, vases and planter pots — designed by us, printed to order in 15 colors and finished by hand. Pick your color and we will make yours.',
     heroCta1:'Shop Best Sellers', heroCta2:'Our Story', heroCta3:'Shop Sale',
@@ -1191,7 +1242,27 @@ const I18N = {
     viewed:(a,b)=>`You've viewed ${a} of ${b} products`,
     loadMore:'Load More',
     aTitle:'Ray Assistant', aSub:'I ask a few questions, I pick for you',
-    aIntro:"Hi! I'll help you find the piece that fits your space.",
+    aIntro:"Welcome to Ray! I'm your personal decor advisor — tell me what you're after and I'll find the perfect piece (and yes, I'm good at convincing 😉).",
+    aQOcc:'And who is this piece for?',
+    aOccGift:'A gift 🎁', aOccSelf:'For myself', aOccHome:'A new home', aOccOffice:'My workspace',
+    aSayGift:"A gift! Great call — nobody forgets who gave them a Ray piece.",
+    aSaySelf:"For you then — you deserve something that makes your space feel like home.",
+    aSayHome:"A new home! Congratulations — lighting is the fastest way to make it feel yours.",
+    aSayOffice:"Smart move — one warm lamp changes how the whole workday feels.",
+    aQVibe:'What vibe are we going for?',
+    aVibeCozy:'Warm & cozy', aVibeModern:'Modern & minimal', aVibeClassic:'Classic & elegant', aVibeBold:'Bold & colorful',
+    aSayCozy:"Cozy it is — warm light and earthy tones. My personal favorite.",
+    aSayModern:"Modern — clean lines, statement pieces. Great taste.",
+    aSayClassic:"Classic elegance — timeless pieces never go out of style.",
+    aSayBold:"Bold! Then let's pick something that speaks for itself.",
+    aPitch:"Here are my top picks for you — all on sale right now 🔥",
+    aReasonOcc:'Perfect for the occasion', aReasonVibe:'Matches your vibe exactly',
+    aFtCheaper:'Something more affordable', aFtFancier:'Something more premium', aFtCombo:'Complete the look ✨', aFtWa:'Order on WhatsApp',
+    aCheaperPitch:"Same style, easier on the wallet — and just as beautiful:",
+    aFancierPitch:"If you want to level up, these are worth every pound:",
+    aComboPitch:"And to complete the look, this pairs beautifully with your pick:",
+    aFtNone:"Honestly? These are already the best matches for you 😊",
+    aWaMsg:n=>`Hello Ray! I'd like to order: ${n} 🌟`,
     aQ1:"What would you like to start with?",
     aLamp:'A lamp', aVase:'A vase', aPlant:'A planter pot', aAny:'Surprise me',
     aQ2:"Where will the lamp live?",
@@ -1203,7 +1274,7 @@ const I18N = {
     aPick:"Perfect — here's what I picked for you:",
     aHint:'Tap "View" on any piece, or add it straight to your cart.',
     aView:'View', aAdd:'Add', aAgain:'Start over',
-    magicBtn:'Press here to see the magic', customCard:'Custom Orders', customCardMsg:"Don't see what you want? We print your own ideas.", customBtn:'Request Yours',
+    magicBtn:'Press here to see the magic', mgOver:'Tap the lamp — watch the magic', mgTitle:"Ray's Magic Gallery", customCard:'Custom Orders', customCardMsg:"Don't see what you want? We print your own ideas.", customBtn:'Request Yours',
     cstOver:'Made For You', cstTitle:'Dream it. We print it.',
     cstMsg:'Have a different idea? Want us to make something just for you? Send us your idea, and one of our team will get in touch with you to bring it to life.',
     cstS1:'Send your idea', cstS2:'We confirm the details', cstS3:'We print your piece',
@@ -1285,7 +1356,7 @@ const I18N = {
     announce: '✦ شحن مجاني لكل الطلبات في جميع أنحاء مصر',
     location: 'القاهرة الجديدة',
     'nav.home':'الرئيسية','nav.cats':'الأقسام','nav.desk':'لمبات المكتب','nav.hanging':'لمبات معلقة','nav.vases':'فازات','nav.planters':'أواني الزرع','nav.contact':'تواصل معنا',
-    catsOver:'تسوّق حسب القسم',catsH:'الأقسام',
+    catsOver:'تسوّق حسب القسم',catsH:'الأقسام',cgGo:'اذهب إلى',
     heroTitle: 'دفء لمنزلك، <em>مطبوع طبقة فوق طبقة</em>',
     heroSub: 'مصابيح مكتب ومعلّقات ومزهريات وأصص نباتات — بتصميمنا الخاص، تُطبع عند الطلب بـ 15 لون وتُشطّب يدويًا. اختار لونك وبنصنع قطعتك.',
     heroCta1:'تسوّق الأكثر مبيعًا', heroCta2:'قصتنا', heroCta3:'العروض',
@@ -1309,7 +1380,27 @@ const I18N = {
     viewed:(a,b)=>`شاهدت ${a} من ${b} قطع`,
     loadMore:'عرض المزيد',
     aTitle:'مساعد Ray', aSub:'أسألك سؤالين وأختار لك',
-    aIntro:'أهلًا بك! سأساعدك في إيجاد القطعة المناسبة لمساحتك.',
+    aIntro:'أهلًا بيك في راي! أنا مستشارك الشخصي للديكور — قولّي بتدوّر على إيه وأنا هلاقيلك القطعة المثالية (واطمّن، مقنِع جدًا 😉).',
+    aQOcc:'والقطعة دي لمين؟',
+    aOccGift:'هدية 🎁', aOccSelf:'لنفسي', aOccHome:'بيت جديد', aOccOffice:'مكتب / شغل',
+    aSayGift:'هدية! اختيار موفق — اللي ياخد قطعة من راي عمره ما بينساها.',
+    aSaySelf:'لك أنت إذًا — تستاهل حاجة تخلّي مكانك إحساسه بيت حقيقي.',
+    aSayHome:'بيت جديد! ألف مبروك — الإضاءة أسرع حاجة تخلّي المكان يبقى ليك.',
+    aSayOffice:'خطوة ذكية — لمبة دافية على المكتب بتغير إحساس اليوم كله.',
+    aQVibe:'عايز الإحساس العام يبقى إيه؟',
+    aVibeCozy:'دافي ومريح', aVibeModern:'عصري ومينيمال', aVibeClassic:'كلاسيكي وأنيق', aVibeBold:'جسور وملوّن',
+    aSayCozy:'دافي إذًا — نور عنصر ودرجات ترابية. ده المفضل عندي شخصيًا.',
+    aSayModern:'عصري — خطوط نضيفة وقطع ليها شخصية. ذوقك حلو.',
+    aSayClassic:'كلاسيكي أنيق — القطع الزمنية عمي ما بتخرج من الموضة.',
+    aSayBold:'جسور! يبقى نختار حاجة تتكلم عن نفسها.',
+    aPitch:'دي أفضل اختياراتي ليك — وكلها عليها خصومات شغالة دلوقتي 🔥',
+    aReasonOcc:'مثالية للمناسبة', aReasonVibe:'طابقة مع إحساسك بالظبط',
+    aFtCheaper:'حاجة أخف على الجيب', aFtFancier:'حاجة أفخم', aFtCombo:'كمّل اللوك ✨', aFtWa:'اطلب على الواتساب',
+    aCheaperPitch:'نفس الستايل بس أرخص — وجميلة بنفس القدر:',
+    aFancierPitch:'لو حابب ترفع المستوى، دي تستاهل كل جنيه فيها:',
+    aComboPitch:'وعشان اللوك يكتمل، القطعة دي بتكمل اختيارك بشكل رائع:',
+    aFtNone:'بصراحة؟ دي بالفعل أحسن اختيارات ليك 😊',
+    aWaMsg:n=>`أهلًا راي! عايز أطلب: ${n} 🌟`,
     aQ1:'بماذا تحب أن نبدأ؟',
     aLamp:'لمبة', aVase:'فازة', aPlant:'إناء زرع', aAny:'فاجئني',
     aQ2:'أين ستضع اللمبة؟',
@@ -1321,7 +1412,7 @@ const I18N = {
     aPick:'رائع — هذه قطعة مختارة لك:',
     aHint:'اضغط «عرض» على أي قطعة، أو أضفها مباشرة إلى سلتك.',
     aView:'عرض', aAdd:'إضافة', aAgain:'ابدأ من جديد',
-    magicBtn:'اضغط هنا لترى السحر', customCard:'طلبات خاصة', customCardMsg:'لم تجد ما تبحث عنه؟ نطبع أفكارك أنت.', customBtn:'اطلب قطعتك',
+    magicBtn:'اضغط هنا لترى السحر', mgOver:'دوس على اللمبة — وشوف السحر', mgTitle:'معرض راي السحري', customCard:'طلبات خاصة', customCardMsg:'لم تجد ما تبحث عنه؟ نطبع أفكارك أنت.', customBtn:'اطلب قطعتك',
     cstOver:'صُنع لأجلك', cstTitle:'تخيّلها… ونحن نطبعها.',
     cstMsg:'لديك فكرة مختلفة وتريدنا أن نصنعها لك؟ أرسل لنا فكرتك، وسيتواصل معك أحد أعضاء فريقنا لتحويلها إلى واقع.',
     cstS1:'أرسل فكرتك', cstS2:'نؤكد التفاصيل معك', cstS3:'نطبع قطعتك',
@@ -1463,12 +1554,12 @@ name:{en:'Pendant Lamp 007',ar:'Pendant Lamp 007'},
     spec:{en:'13 × 13 × 22 cm · fine-ribbed cylinder · E27 socket · 1.5 m cord',ar:'13 × 13 × 22 سم · أسطوانة مضلّعة دقيقة · قاعدة E27 · كابل 1.5 متر'},
     desc:{en:'A slim ribbed pendant with a soft, focused glow — right at home above a bedside table, desk or reading corner. E27 socket with a 1.5 m cord. Available in 16 colors, including two matte finishes.',ar:'لمبة معلّقة نحيفة بضلوع دقيقة وضوء ناعم ومركّز — مناسبة فوق الكوميدينو أو المكتب أو ركن القراية. قاعدة E27 وكابل 1.5 متر. متاحة بـ 16 لون، منهم لونين مطفي.'} },
   'pendant-lamp-008':{ price:1600, sale:1300, badge:null, defColor:'Black', folder:{n:4}, sw:15,
-        lit:'pendant-lamp-008/lit.jpg', litColor:'Black',
+        lit:'pendant-lamp-008/lit.jpg', litColor:'Bone White',
 name:{en:'Pendant Lamp 008',ar:'Pendant Lamp 008'},
     spec:{en:'23 × 23 × 17 cm · organic lattice globe · E27 socket',ar:'23 × 23 × 17 سم · كرة شبكية عضوية · قاعدة E27'},
     desc:{en:'A wide open-lattice globe that spreads light evenly over the whole table. E27 socket — pick any of our colors and we will print yours to order.',ar:'كرة عريضة بشبكة مفتوحة بتوزّع الضوء بالتساوي على السفرة كلها. قاعدة E27 — اختار أي لون وبنطبعها لك عند الطلب.'} },
   'twisted-pendant':{ price:1600, sale:1300, badge:null, defColor:'Bone White', folder:{n:7}, sw:15,
-        lit:'twisted-pendant/lit.jpg', litColor:'Bone White',
+        lit:'twisted-pendant/lit.jpg', litColor:'Black',
 name:{en:'Twisted Pendant Lamp',ar:'Twisted Pendant Lamp'},
     spec:{en:'22 × 22 × 15 cm · twisted-ribbon sphere · E27 socket · 1.5 m cord',ar:'22 × 22 × 15 سم · كرة بشرائط ملتوية · قاعدة E27 · كابل 1.5 متر'},
     desc:{en:'Interlocking twisted ribbons form a sphere that glows evenly from every side — a natural centerpiece over a dining or coffee table. E27 socket with a 1.5 m cord, printed in your chosen color.',ar:'شرائط ملتوية متشابكة بتكوّن كرة بتضوي بانتظام من كل ناحية — قطعة مميزة فوق سفرة الطعام أو طرابيزة القهوة. قاعدة E27 وكابل 1.5 متر، وتتطبع باللون اللي تختاره.'} },
@@ -1649,7 +1740,22 @@ function renderCategories(){
     if (g) g.innerHTML = SECTIONS[k].map(id => cardHtml(id)).join('');
   });
 }
+const MG_LAMPS = ['table-lamp-025','konio-lamp','pendant-lamp-007','pendant-lamp-008','chain-pendant-03','twisted-pendant'];
+function renderMagicGallery(){
+  const g = document.getElementById('mgGrid');
+  if(!g) return;
+  g.innerHTML = MG_LAMPS.map(id => {
+    const p = P(id);
+    return `<div class="mg-tile" onclick="mgOpen('${id}')">
+      <img data-pid="${id}" src="${swSrc(id, p.litColor || colorOf(id))}" alt="${p.name[lang]}" loading="lazy" onerror="imgFall(this)">
+      ${p.lit ? `<img class="lit-layer" src="${p.lit}" alt="" onerror="this.style.display='none'">` : ''}
+      <span class="mg-nm">${p.name[lang]}</span>
+    </div>`;
+  }).join('');
+}
+function mgOpen(id){ if(P(id).litColor) selColor[id] = P(id).litColor; quickOpen(id); }
 function renderAll(){
+  renderMagicGallery();
   renderShop();
   renderNew();
   renderSale();
@@ -1874,6 +1980,7 @@ function cstWa(){
 
 /* ================== AI ASSISTANT ================== */
 let aAns = {};
+let aLast = null;
 const SUGCOL = {
   warm:    { 'table-lamp-025':'Sand Brown','konio-lamp':'Beige','pendant-lamp-007':'Sand Brown','pendant-lamp-008':'Beige','chain-pendant-03':'Sand Brown','twisted-pendant':'Brown','flower-vase-013':'Sand Brown','flower-vase-016':'Beige','planter-pot-005':'Sand Brown','planter-pot-014':'Beige' },
   white:   { 'table-lamp-025':'Bone White','konio-lamp':'Bone White','pendant-lamp-007':'Bone White','pendant-lamp-008':'Bone White','chain-pendant-03':'Bone White','twisted-pendant':'Bone White','flower-vase-013':'Bone White','flower-vase-016':'Bone White','planter-pot-005':'Bone White','planter-pot-014':'Bone White' },
@@ -1884,9 +1991,13 @@ const BUD_MID = { b1:1050, b2:1450, b3:1850 };
 const BUD_TOP = { b1:1200, b2:1700, b3:Infinity };
 const BUDMAP = { b1:['pendant-lamp-007','flower-vase-013','planter-pot-014'], b2:['pendant-lamp-007','flower-vase-013','flower-vase-016','planter-pot-014','planter-pot-005','twisted-pendant','pendant-lamp-008','chain-pendant-03','konio-lamp'], b3:['twisted-pendant','chain-pendant-03','konio-lamp','table-lamp-025','pendant-lamp-007','flower-vase-013','pendant-lamp-008','flower-vase-016','planter-pot-005','planter-pot-014'] };
 const COLMAP = { warm:['twisted-pendant','chain-pendant-03','pendant-lamp-007','flower-vase-016','planter-pot-014'], white:['table-lamp-025','konio-lamp','pendant-lamp-008','flower-vase-013'], dark:['konio-lamp','twisted-pendant','pendant-lamp-008'], natural:['pendant-lamp-007','chain-pendant-03','flower-vase-013','planter-pot-005'] };
+/* v5.32: عقلية موظف المبيعات — المناسبة + الستايل + قطع تكمّل اللوك */
+const OCCMAP = { gift:['konio-lamp','flower-vase-013','planter-pot-005','flower-vase-016','pendant-lamp-008'], self:['table-lamp-025','konio-lamp','chain-pendant-03','twisted-pendant'], home:['pendant-lamp-008','chain-pendant-03','planter-pot-014','flower-vase-016','twisted-pendant'], office:['table-lamp-025','pendant-lamp-007','planter-pot-005','flower-vase-013'] };
+const VIBEMAP = { cozy:['table-lamp-025','chain-pendant-03','flower-vase-013','planter-pot-005'], modern:['konio-lamp','pendant-lamp-008','twisted-pendant','planter-pot-014'], classic:['pendant-lamp-007','chain-pendant-03','flower-vase-016'], bold:['twisted-pendant','pendant-lamp-007','planter-pot-014','flower-vase-016'] };
+const COMBO = { 'table-lamp-025':'flower-vase-013','konio-lamp':'planter-pot-005','pendant-lamp-007':'flower-vase-016','pendant-lamp-008':'flower-vase-013','chain-pendant-03':'planter-pot-014','twisted-pendant':'flower-vase-016','flower-vase-013':'table-lamp-025','flower-vase-016':'chain-pendant-03','planter-pot-005':'konio-lamp','planter-pot-014':'chain-pendant-03' };
 function aUnit(id){ return PRODUCTS[id].sale || PRODUCTS[id].price; }
 function openAssist(){
-  aAns = {};
+  aAns = {}; aLast = null;
   $('#aLog').innerHTML = '';
   $('#aOpts').innerHTML = '';
   $('#assistModal').classList.add('show');
@@ -1917,9 +2028,14 @@ function aOpts(rows){
 }
 function aNav(k, label){
   $('#aOpts').innerHTML = '';
-  aMsg('u', label);
+  if(label) aMsg('u', label);
   if(k === 'lamps'){ aAns.cat = 'lamp'; delete aAns.place; setTimeout(aAsk, 700); return; }
   if(k === 'cheaper'){ aAns.cat = 'any'; setTimeout(aAsk, 700); return; }
+  if(k === 'again'){ aAgain(); return; }
+  if(k === 'wa'){ aWa(); return; }
+  if(k === 'cheaper2'){ setTimeout(()=>aFollow('cheap'), 650); return; }
+  if(k === 'fancier'){ setTimeout(()=>aFollow('fancy'), 650); return; }
+  if(k === 'combo'){ setTimeout(aCombo, 650); return; }
   aAns.force = true;
   setTimeout(aResults, 850);
 }
@@ -1928,11 +2044,11 @@ function aPick(field, k, label){
   aMsg('u', label);
   aAns[field] = k;
   const say = T()['aSay' + k.charAt(0).toUpperCase() + k.slice(1)];
-  if(say){ aMsg('a', say); setTimeout(aAsk, 750); }
+  if(say){ aMsg('a', say); setTimeout(aAsk, 800); }
   else setTimeout(aAsk, 380);
 }
 function aAgain(){
-  aAns = {};
+  aAns = {}; aLast = null;
   $('#aLog').innerHTML = '';
   $('#aOpts').innerHTML = '';
   aAsk();
@@ -1949,9 +2065,19 @@ function aAsk(){
     aOpts([['place','desk',t.aDesk],['place','hang',t.aHang]]);
     return;
   }
+  if(!aAns.occ){
+    aMsg('a', t.aQOcc);
+    aOpts([['occ','gift',t.aOccGift],['occ','self',t.aOccSelf],['occ','home',t.aOccHome],['occ','office',t.aOccOffice]]);
+    return;
+  }
   if(!aAns.col){
     aMsg('a', t.aQ3);
     aOpts([['col','warm',t.aWarm],['col','white',t.aWhite],['col','dark',t.aDark],['col','natural',t.aNatural]]);
+    return;
+  }
+  if(!aAns.vibe){
+    aMsg('a', t.aQVibe);
+    aOpts([['vibe','cozy',t.aVibeCozy],['vibe','modern',t.aVibeModern],['vibe','classic',t.aVibeClassic],['vibe','bold',t.aVibeBold]]);
     return;
   }
   if(!aAns.bud){
@@ -1971,10 +2097,43 @@ function aPool(a){
 }
 function aChoose(a){
   return aPool(a).map(id => {
-    const colOk = COLMAP[a.col].indexOf(id) > -1;
-    const budOk = BUDMAP[a.bud].indexOf(id) > -1;
-    return { id: id, colOk: colOk, budOk: budOk, sc: (colOk ? 2 : 0) + (budOk ? 2 : 0), u: aUnit(id) };
+    const colOk = COLMAP[a.col] && COLMAP[a.col].indexOf(id) > -1;
+    const budOk = BUDMAP[a.bud] && BUDMAP[a.bud].indexOf(id) > -1;
+    const occOk = !a.occ || (OCCMAP[a.occ] && OCCMAP[a.occ].indexOf(id) > -1);
+    const vibeOk = !a.vibe || (VIBEMAP[a.vibe] && VIBEMAP[a.vibe].indexOf(id) > -1);
+    return { id: id, colOk: colOk, budOk: budOk, occOk: occOk, vibeOk: vibeOk, sc: (colOk ? 2 : 0) + (budOk ? 2 : 0) + (occOk ? 1.5 : 0) + (vibeOk ? 1.5 : 0), u: aUnit(id) };
   }).sort((x, y) => y.sc - x.sc || Math.abs(x.u - BUD_MID[a.bud]) - Math.abs(y.u - BUD_MID[a.bud]));
+}
+function aItemRow(r){
+  const t = T();
+  const p = PRODUCTS[r.id];
+  const sug = SUGCOL[aAns.col] ? SUGCOL[aAns.col][r.id] : null;
+  const price = p.sale ? `<b>${LE(p.sale)}</b><s>${LE(p.price)}</s><span class="p-off">${T().off(discPct(p))}</span>` : `<b>${LE(p.price)}</b>`;
+  const rs = [];
+  if(r.colOk && r.budOk) rs.push(t.aReasonBoth); else if(r.colOk) rs.push(t.aReasonColor); else if(r.budOk) rs.push(t.aReasonBudget); else rs.push(t.aReasonClose);
+  if(r.occOk) rs.push(t.aReasonOcc);
+  if(r.vibeOk) rs.push(t.aReasonVibe);
+  const reason = rs.join(' · ');
+  return `<div class="a-item"><span class="a-img"><img data-pid="${r.id}" src="${pMain(r.id)}" alt="${p.name.en}" onerror="imgFall(this)">${hasLit(r.id) ? `<img class="lit-layer" src="${P(r.id).lit}" alt="" onerror="this.style.display='none'">` : ''}</span>
+      <div class="a-it"><span>${p.name[lang]}</span>
+        <span class="a-reason">${reason}</span>
+        ${sug ? `<span class="a-col"><i style="background:${FIL[sug]}"></i>${t.aCol}: ${cname(sug)} <em class="ltr">${FIL[sug]}</em></span>` : ''}
+        <span class="a-pr">${price}</span></div>
+      <div class="a-itb"><button class="a-view" onclick="aView('${r.id}')">${t.aView}</button>
+      <button class="a-addb" onclick="aAddCart('${r.id}')">${t.aAdd}</button></div></div>`;
+}
+function aShowItems(items, pitch){
+  aMsg('a', pitch);
+  const wrap = document.createElement('div');
+  wrap.className = 'a-res';
+  wrap.innerHTML = items.map(aItemRow).join('');
+  const log = $('#aLog');
+  log.appendChild(wrap);
+  log.scrollTop = log.scrollHeight;
+}
+function aEndOpts(){
+  const t = T();
+  aOpts([['nav','cheaper2',t.aFtCheaper],['nav','fancier',t.aFtFancier],['nav','combo',t.aFtCombo],['nav','wa',t.aFtWa],['nav','again',t.aAgain]]);
 }
 function aResults(){
   if(!aAns.cat || !aAns.bud) return;
@@ -2001,33 +2160,41 @@ function aResults(){
     return;
   }
   const all = aChoose(aAns);
-  let items = all.filter(r => r.sc >= 2).slice(0, 3);
+  let items = all.filter(r => r.sc >= 3).slice(0, 3);
   if(items.length === 0) items = all.slice(0, 3);
-  aMsg('a', t.aPick);
-  const wrap = document.createElement('div');
-  wrap.className = 'a-res';
-  wrap.innerHTML = items.map(r => {
-    const p = PRODUCTS[r.id];
-    const sug = SUGCOL[aAns.col][r.id];
-    const price = p.sale ? `<b>${LE(p.sale)}</b><s>${LE(p.price)}</s><span class="p-off">${T().off(discPct(p))}</span>` : `<b>${LE(p.price)}</b>`;
-    const reason = r.colOk && r.budOk ? t.aReasonBoth : (r.colOk ? t.aReasonColor : (r.budOk ? t.aReasonBudget : t.aReasonClose));
-    return `<div class="a-item"><span class="a-img"><img data-pid="${r.id}" src="${pMain(r.id)}" alt="${p.name.en}" onerror="imgFall(this)">${hasLit(r.id) ? `<img class="lit-layer" src="${P(r.id).lit}" alt="" onerror="this.style.display='none'">` : ''}</span>
-      <div class="a-it"><span>${p.name.en}</span>
-        <span class="a-reason">${reason}</span>
-        <span class="a-col"><i style="background:${FIL[sug]}"></i>${t.aCol}: ${cname(sug)} <em class="ltr">${FIL[sug]}</em></span>
-        <span class="a-pr">${price}</span></div>
-      <div class="a-itb"><button class="a-view" onclick="aView('${r.id}')">${t.aView}</button>
-      <button class="a-addb" onclick="aAddCart('${r.id}')">${t.aAdd}</button></div></div>`;
-  }).join('');
-  const log = $('#aLog');
-  log.appendChild(wrap);
-  aMsg('a', t.aHint);
-  aOpts([['nav','again',t.aAgain]]);
-  $('#aOpts .a-opt').onclick = aAgain;
-  log.scrollTop = log.scrollHeight;
+  aLast = items;
+  aShowItems(items, t.aPitch);
+  aEndOpts();
 }
-function aView(id){ selColor[id] = SUGCOL[aAns.col][id]; closeAssist(); quickOpen(id); }
-function aAddCart(id){ selColor[id] = SUGCOL[aAns.col][id]; addToCart(id); closeAssist(); openCart(); }
+function aFollow(mode){
+  const t = T();
+  if(!aLast || !aLast.length){ aAgain(); return; }
+  const pool = aPool(aAns);
+  const ref = mode === 'cheap' ? Math.min.apply(null, aLast.map(r => r.u)) : Math.max.apply(null, aLast.map(r => r.u));
+  const cands = pool.map(id => ({ id: id, u: aUnit(id) }))
+    .filter(r => mode === 'cheap' ? r.u < ref : r.u > ref)
+    .sort((x, y) => mode === 'cheap' ? x.u - y.u : y.u - x.u).slice(0, 2);
+  if(!cands.length){ aMsg('a', t.aFtNone); aEndOpts(); return; }
+  const items = cands.map(r => ({ id: r.id, colOk: false, budOk: true, occOk: true, vibeOk: true }));
+  aLast = aLast.concat(items);
+  aShowItems(items, mode === 'cheap' ? t.aCheaperPitch : t.aFancierPitch);
+  aEndOpts();
+}
+function aCombo(){
+  const t = T();
+  if(!aLast || !aLast.length){ aAgain(); return; }
+  const cid = COMBO[aLast[0].id];
+  if(!cid){ aMsg('a', t.aFtNone); aEndOpts(); return; }
+  aShowItems([{ id: cid, colOk: false, budOk: true, occOk: true, vibeOk: true }], t.aComboPitch);
+  aEndOpts();
+}
+function aWa(){
+  const t = T();
+  const names = (aLast || []).slice(0, 3).map(r => P(r.id).name[lang]).join('، ');
+  waShare(t.aWaMsg(names));
+}
+function aView(id){ if(SUGCOL[aAns.col]) selColor[id] = SUGCOL[aAns.col][id]; closeAssist(); quickOpen(id); }
+function aAddCart(id){ if(SUGCOL[aAns.col]) selColor[id] = SUGCOL[aAns.col][id]; addToCart(id); closeAssist(); openCart(); }
 
 /* ================== COLOR PICKER ================== */
 let colorOpenedOver = null;
@@ -2301,8 +2468,18 @@ let lightsOn = false;
 function toggleLights(){
   lightsOn = !lightsOn;
   document.documentElement.classList.toggle('lights-on', lightsOn);
+  /* v5.32: أول ما النور يولع، كل منتج يرجع للونه اللي له صور on/off — عشان السحر يبان صح */
+  if(lightsOn){
+    let changed = false;
+    for(const id in PRODUCTS){ const p = PRODUCTS[id]; if(p.litColor && selColor[id] !== p.litColor){ selColor[id] = p.litColor; changed = true; } }
+    if(changed){
+      const qvOpen = $('#modal').classList.contains('show') && currentModal ? currentModal.id : null;
+      renderAll();
+      if(qvOpen){ mIdx = 0; mGallery(qvOpen); $('#mPick').innerHTML = pickHtml(qvOpen); }
+    }
+  }
   const b = document.getElementById('magicBtn');
-  if (b) b.classList.toggle('active', lightsOn);
+  if (b){ b.classList.toggle('active', lightsOn); b.classList.remove('pulse'); }
 }
 function mGallery(id){
   const p = P(id);
@@ -2369,60 +2546,56 @@ document.addEventListener('keydown', e => {
   if (e.key === 'ArrowRight') mNav(1);
 });
 
-/* ================== v5.7 — categories carousel ================== */
-(function(){
-  const track = document.getElementById('ccTrack'); if (!track) return;
-  const cards = Array.from(track.querySelectorAll('.cc-card'));
-  const prev = document.getElementById('ccPrev'), next = document.getElementById('ccNext');
-  const dotsBox = document.getElementById('ccDots');
-  const isRTL = () => getComputedStyle(track).direction === 'rtl';
-  const maxS = () => Math.max(0, track.scrollWidth - track.clientWidth);
-  const cur = () => Math.abs(track.scrollLeft);
-  let dotEls = [];
-  const paintDots = () => {
-    const m = maxS();
-    const a = m > 0 ? Math.min(cards.length - 1, Math.round(cur() / m * (cards.length - 1))) : 0;
-    dotEls.forEach((d, i) => d.classList.toggle('on', i === a));
-  };
-  const paintNav = () => {
-    const m = maxS(), c = cur();
-    if (prev) prev.disabled = c <= 2;
-    if (next) next.disabled = c >= m - 2;
-  };
-  let snapT = null;
-  const glide = target => {
-    track.style.scrollSnapType = 'none';   // السناب بيتعارض مع السكرول البرمجي الملسوف
-    track.scrollTo({ left: isRTL() ? -target : target, behavior: 'smooth' });
-    const re = () => { track.style.scrollSnapType = ''; };
-    track.removeEventListener('scrollend', re);
-    track.addEventListener('scrollend', re, { once: true });
-    clearTimeout(snapT); snapT = setTimeout(re, 700);
-  };
-  const flip = dir => {
-    const step = (cards[0] ? cards[0].offsetWidth : 252) + 20;
-    glide(Math.max(0, Math.min(maxS(), cur() + dir * step)));
-  };
-  if (prev) prev.addEventListener('click', () => flip(-1));
-  if (next) next.addEventListener('click', () => flip(1));
-  if (dotsBox) {
-    dotEls = cards.map((c, i) => {
-      const b = document.createElement('button');
-      b.className = 'cc-dot'; b.type = 'button';
-      b.setAttribute('aria-label', 'category ' + (i + 1));
-      b.addEventListener('click', () => glide(Math.round(maxS() * i / Math.max(1, cards.length - 1))));
-      dotsBox.appendChild(b); return b;
-    });
-    paintDots();
+/* ================== v5.35 — categories peek: عند الـhover أو أول ضغطة صور عشوائية من منتجات القسم بألوانها ================== */
+const CG_POOLS = {
+  desk:['table-lamp-025','konio-lamp'],
+  hanging:['pendant-lamp-007','pendant-lamp-008','chain-pendant-03','twisted-pendant'],
+  vases:['flower-vase-013','flower-vase-016'],
+  planters:['planter-pot-005','planter-pot-014']
+};
+document.querySelectorAll('.cg-item').forEach(item => {
+  const cat = item.dataset.cat;
+  const frame = item.querySelector('.cg-frame');
+  const pk = [item.querySelector('.cg-pk.a'), item.querySelector('.cg-pk.b')];
+  const capDot = item.querySelector('.cg-cap i');
+  const capTxt = item.querySelector('.cg-cap span');
+  const go = item.querySelector('.cg-go');
+  let cur = 0, timer = null, byHover = false, lastKey = '';
+  const rnd = a => a[Math.floor(Math.random() * a.length)];
+  function step(){
+    const pool = CG_POOLS[cat]; if(!pool || !pool.length) return;
+    const id = rnd(pool), p = P(id);
+    const n = Math.max(1, p.sw || 15);
+    let col = FILAMENTS[Math.floor(Math.random() * n)][0];
+    if(id + '|' + col === lastKey) col = FILAMENTS[Math.floor(Math.random() * n)][0];
+    lastKey = id + '|' + col;
+    const nxt = 1 - cur;
+    pk[nxt].src = swSrc(id, col);
+    pk[nxt].classList.add('show');
+    pk[cur].classList.remove('show');
+    cur = nxt;
+    capDot.style.background = FIL[col] || '#fff';
+    capTxt.textContent = p.name[lang] + ' · ' + cname(col);
+    go.innerHTML = (T().cgGo || 'Go to') + ' ' + item.querySelector('.cg-name').textContent.trim() + ' <span class="cg-arr">\u2192</span>';
   }
-  track.addEventListener('scroll', () => { paintDots(); paintNav(); }, { passive: true });
-  const updateNav = () => {
-    const over = maxS() > 2;
-    [prev, next].forEach(b => { if (b) b.style.display = over ? '' : 'none'; });
-    if (dotsBox) dotsBox.style.display = over ? '' : 'none';
-    paintNav();
-  };
-  updateNav();
-  window.addEventListener('resize', updateNav);
+  function start(hover){ if(timer) return; byHover = !!hover; item.classList.add('peeking'); step(); timer = setInterval(step, 1700); }
+  function stop(){ if(byHover){ clearInterval(timer); timer = null; item.classList.remove('peeking'); } }
+  frame.addEventListener('pointerenter', e => { if(e.pointerType === 'mouse') start(true); });
+  frame.addEventListener('pointerleave', e => { if(e.pointerType === 'mouse') stop(); });
+  frame.addEventListener('click', () => { if(item.classList.contains('peeking')) goCat(cat); else start(false); });
+  go.addEventListener('click', e => { e.stopPropagation(); goCat(cat); });
+});
+/* شريط الأقسام: أسهم للتقليب */
+(function(){
+  const strip = document.getElementById('cgStrip'); if(!strip) return;
+  const prev = document.getElementById('cgPrev'), next = document.getElementById('cgNext');
+  const rtl = () => getComputedStyle(strip).direction === 'rtl';
+  const maxS = () => Math.max(0, strip.scrollWidth - strip.clientWidth);
+  const flip = dir => strip.scrollBy({ left: (rtl() ? -1 : 1) * dir * 300, behavior: 'smooth' });
+  if(prev) prev.addEventListener('click', () => flip(-1));
+  if(next) next.addEventListener('click', () => flip(1));
+  const upd = () => { const over = maxS() > 4; [prev, next].forEach(b => { if(b) b.style.display = over ? '' : 'none'; }); };
+  upd(); addEventListener('resize', upd);
 })();
 
 /* ================== PHOTO MAP (shared images, single source) ================== */
@@ -2495,7 +2668,6 @@ window.addEventListener('scroll', ()=>{
   $('#header').classList.toggle('scrolled', window.scrollY > 10);
   const h = document.documentElement;
   const max = h.scrollHeight - window.innerHeight;
-  $('#progress').style.width = (max>0 ? (window.scrollY/max)*100 : 0) + '%';
   const y = window.scrollY;
   const hero = $('#heroImg');
   if(!reduced && hero && y < window.innerHeight){
@@ -2568,7 +2740,8 @@ function applyLang(l){
 const FLAG_EG = '<svg class="flg" viewBox="0 0 24 16" width="18" height="12" aria-hidden="true"><rect width="24" height="5.34" fill="#CE1126"/><rect y="5.33" width="24" height="5.34" fill="#ffffff"/><rect y="10.66" width="24" height="5.34" fill="#1d1a16"/><circle cx="12" cy="8" r="1.9" fill="#C09300"/></svg>';
 const FLAG_US = '<svg class="flg" viewBox="0 0 24 16" width="18" height="12" aria-hidden="true"><rect width="24" height="16" fill="#ffffff"/><g fill="#B22234"><rect y="0.55" width="24" height="1.1"/><rect y="2.88" width="24" height="1.1"/><rect y="5.21" width="24" height="1.1"/><rect y="7.54" width="24" height="1.1"/><rect y="9.87" width="24" height="1.1"/><rect y="12.2" width="24" height="1.1"/><rect y="14.53" width="24" height="1.1"/></g><rect width="10.5" height="8.65" fill="#3C3B6E"/></svg>';
 function setLangBtn(){
-  $('#langToggle').innerHTML = lang==='en' ? '<span class=\'lg-badge ar\'>ع</span>العربية' : '<span class=\'lg-badge en\'>EN</span>English';
+  $('#langToggle .lg-seg.ar').classList.toggle('on', lang==='ar');
+  $('#langToggle .lg-seg.en').classList.toggle('on', lang==='en');
 }
 $('#langToggle').addEventListener('click', ()=>{
   const next = lang==='en' ? 'ar' : 'en';
