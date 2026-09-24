@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<!-- ===== Ray Home Accessories — v5.37 · On/Off — الأزواج الأصلية main.jpg/lit.jpg زي ما هما (نفس الأبعاد بالبكسل) · baseSrc: عند لون on/off الأساس main مش السواتش · الترانزيشن بيبان دايمًا: الرندر قبل كلاس النور + reflow · رجّعنا صور lit الأصلية للتلاتة ===== -->
+<!-- ===== Ray Home Accessories — v5.38 · Polish — زرار اللغة دايرة واحدة (علم + حرف حسب لغة التبديل) · هيرو الموبايل portrait 3:4 من غير المستطيل الغامق (ظل نص بداله) · شارة الخصم أصغر · إصلاح جليتش peek الكاتيجوريز (تحميل مسبق قبل الفيد + زووم على الحاوية مش الصور) ===== -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="assets/fonts.css">
 <title>Ray Home Accessories — 3D Printed Warmth for Every Home</title>
@@ -96,11 +96,10 @@ html.lights-on img.lit-layer{opacity:1}
 .m-th img.lit-layer{inset:2px;width:calc(100% - 4px);height:calc(100% - 4px);border-radius:8px}
 /* v5.27: طبقة النور في نافذة المنتج بنفس أبعاد الصورة الأساسية بالظبط — contain + نفس الفريم مش cover */
 .m-slide img.lit-layer{object-fit:contain;box-sizing:border-box;padding:14px;background:transparent}
-.lang-toggle{display:inline-flex;align-items:center;gap:3px;border:1px solid var(--line);background:var(--paper);border-radius:16px;padding:3px;cursor:pointer;transition:border-color .2s,box-shadow .2s}
+.lang-toggle{display:inline-grid;place-items:center;gap:2px;width:40px;height:40px;border:1px solid var(--line);background:var(--paper);border-radius:50%;padding:0;cursor:pointer;transition:border-color .2s,box-shadow .2s}
 .lang-toggle:hover{border-color:var(--ink);box-shadow:var(--shadow-sm)}
-.lg-seg{display:inline-flex;align-items:center;gap:5px;padding:5px 9px;border-radius:12px;font-size:.72rem;font-weight:800;color:var(--ink-faint);transition:background .2s,color .2s}
-.lg-seg.on{background:var(--ink);color:var(--cream)}
-.lg-seg svg{width:17px;height:11.5px;border-radius:2px;box-shadow:0 0 0 1px rgba(0,0,0,.14);flex:none}
+.lang-toggle svg{width:16px;height:10.5px;border-radius:2px;box-shadow:0 0 0 1px rgba(0,0,0,.14)}
+.lang-toggle b{font-size:.56rem;font-weight:800;color:var(--ink);line-height:1}
 .lang-toggle .flg{flex:none;border-radius:3px;box-shadow:0 0 0 1px rgba(0,0,0,.15)}
 .icon-btn{position:relative;width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:var(--paper);display:grid;place-items:center;cursor:pointer;color:var(--ink);transition:border-color .2s,transform .2s}
 .icon-btn:hover{border-color:var(--ink);transform:translateY(-1px)}
@@ -118,7 +117,7 @@ html.lights-on img.lit-layer{opacity:1}
   .lang-toggle{position:absolute;inset-inline-start:60px;top:50%;transform:translateY(-50%)}
 }
 @media (max-width:400px){
-  .lang-toggle{inset-inline-start:56px;padding:5px 8px;font-size:.66rem}
+  .lang-toggle{inset-inline-start:56px}
 }
 
 /* ================== v5.3 MOBILE FIXES — header + hero ================== */
@@ -132,7 +131,7 @@ html.lights-on img.lit-layer{opacity:1}
   .l2{display:none}
   .nav-icons{gap:7px}
   .icon-btn{width:37px;height:37px}
-  .lang-toggle{padding:6px 9px;font-size:.7rem}
+  .lang-toggle{width:37px;height:37px}
 }
 
 /* ---------- mobile menu ---------- */
@@ -151,16 +150,16 @@ html.lights-on img.lit-layer{opacity:1}
 .hero .h-img img{width:100%;height:100%;object-fit:cover}
 .hero::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(250,247,241,.97) 0%,rgba(250,247,241,.86) 34%,rgba(250,247,241,.25) 66%,rgba(250,247,241,.05) 100%)}
 [dir="rtl"] .hero::after{background:linear-gradient(270deg,rgba(250,247,241,.97) 0%,rgba(250,247,241,.86) 34%,rgba(250,247,241,.25) 66%,rgba(250,247,241,.05) 100%)}
-/* v5.33: على الموبايل الكلام مطبوع طبقة فوق طبقة فوق الصورة نفسها */
+/* v5.38: على الموبايل الصورة portrait كاملة (3:4) والكلام فوقها من غير أي مستطيل غامق — ظل خفيف للنص بدله */
 @media (max-width:720px){
-  .hero{min-height:76vh;display:flex;align-items:flex-end}
-  .hero .h-img{position:absolute;inset:0;transform:none}
+  .hero{min-height:0;display:block}
+  .hero .h-img{position:relative;inset:auto;transform:none;aspect-ratio:3/4}
   .hero .h-img img{width:100%;height:100%;object-fit:cover}
   .hero::after{display:none}
-  .hero-txt{position:relative;z-index:2;width:100%;max-width:none;padding:44px 20px 28px;background:linear-gradient(transparent,rgba(18,13,8,.78))}
-  #heroTitle{font-size:clamp(1.85rem,8.2vw,2.6rem);color:#fff}
-  #heroTitle em{color:#F5C99B}
-  #heroSub{color:rgba(255,246,236,.9);margin:12px 0 18px;font-size:.88rem}
+  .hero .hero-txt{position:absolute;bottom:0;inset-inline:0;z-index:2;max-width:none;padding:0 20px 32px;background:none}
+  #heroTitle{font-size:clamp(1.85rem,8.2vw,2.6rem);color:#fff;text-shadow:0 2px 16px rgba(22,15,8,.6)}
+  #heroTitle em{color:#F5C99B;text-shadow:0 2px 14px rgba(22,15,8,.5)}
+  #heroSub{color:rgba(255,246,236,.96);margin:12px 0 18px;font-size:.88rem;text-shadow:0 1px 10px rgba(22,15,8,.55)}
   .hero-cta .btn.ghost{border-color:#fff;color:#fff}
   .hero-cta .btn{padding:12px 20px;font-size:.76rem}
 }
@@ -256,10 +255,10 @@ html.lights-on img.lit-layer{opacity:1}
 .thumb{position:relative;aspect-ratio:1/1;overflow:hidden;background:var(--cream-2)}
 .thumb img{width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.22,.8,.3,1)}
 .card:hover .thumb img{transform:scale(1.055)}
-.badge{position:absolute;top:14px;inset-inline-start:14px;z-index:2;background:var(--ink);color:var(--cream);font-size:.6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:6px 13px;border-radius:20px;box-shadow:var(--shadow-sm)}
+.badge{position:absolute;top:10px;inset-inline-start:10px;z-index:2;background:var(--ink);color:var(--cream);font-size:.52rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;padding:4px 9px;border-radius:16px;box-shadow:var(--shadow-sm)}
 .badge.new{background:var(--olive)}
 .badge.set{background:var(--terra)}
-.badge.sale{background:var(--terra);font-size:.64rem;padding:7px 14px}
+.badge.sale{background:var(--terra);font-size:.55rem;padding:4px 9px}
 .p-off{display:inline-block;background:var(--terra);color:#fff;font-size:.58rem;font-weight:800;letter-spacing:.05em;padding:4px 9px;border-radius:8px;margin-inline-start:9px;vertical-align:middle;white-space:nowrap}
 .quickview{position:absolute;bottom:14px;inset-inline-end:14px;z-index:2;background:rgba(250,247,241,.97);border:1px solid var(--line);color:var(--ink);font-size:.68rem;font-weight:700;padding:8px 16px;border-radius:20px;cursor:pointer;opacity:0;transform:translateY(8px);transition:.3s;box-shadow:var(--shadow-sm)}
 .card:hover .quickview{opacity:1;transform:none}
@@ -679,8 +678,10 @@ html[dir="ltr"] .lang-ar{display:none}
 .cg-peek{position:absolute;inset:0;opacity:0;transition:opacity .45s ease;pointer-events:none}
 .cg-item.peeking .cg-peek{opacity:1}
 .cg-item.peeking .cg-cat{opacity:0}
-.cg-pk{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .55s ease,transform 7s linear}
-.cg-pk.show{opacity:1;transform:scale(1.07)}
+.cg-pk{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .6s ease}
+.cg-pk.show{opacity:1}
+.cg-item.peeking .cg-peek{animation:cgZoom 5.5s ease-in-out infinite alternate}
+@keyframes cgZoom{from{transform:scale(1)}to{transform:scale(1.05)}}
 .cg-cap{position:absolute;top:10px;inset-inline-start:10px;display:inline-flex;align-items:center;gap:6px;background:rgba(20,15,9,.66);color:#fff;padding:5px 10px;font-size:.6rem;font-weight:700;letter-spacing:.04em;max-width:calc(100% - 20px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .cg-cap i{flex:none;width:9px;height:9px;background:#fff;outline:1.5px solid rgba(255,255,255,.75);outline-offset:1.5px}
 .cg-go{position:absolute;bottom:12px;inset-inline:12px;border:none;background:var(--ink);color:var(--cream);padding:11px 14px;font-family:inherit;font-size:.72rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:7px;opacity:0;transform:translateY(10px);pointer-events:none;transition:opacity .35s ease,transform .35s ease,background .2s}
@@ -749,10 +750,7 @@ if (typeof IntersectionObserver === 'undefined') {
       </ul>
     </nav>
     <div class="nav-icons">
-      <button class="lang-toggle" id="langToggle" aria-label="Switch language">
-        <span class="lg-seg ar"><svg viewBox="0 0 18 12" aria-hidden="true"><rect width="18" height="4" fill="#CE1126"/><rect y="4" width="18" height="4" fill="#F5F5F0"/><rect y="8" width="18" height="4" fill="#262622"/></svg>ع</span>
-        <span class="lg-seg en"><svg viewBox="0 0 18 12" aria-hidden="true"><rect width="18" height="12" fill="#B22234"/><g fill="#F5F5F0"><rect y="1.4" width="18" height="1.2"/><rect y="3.8" width="18" height="1.2"/><rect y="6.2" width="18" height="1.2"/><rect y="8.6" width="18" height="1.2"/></g><rect width="7.6" height="6.2" fill="#3C3B6E"/><g fill="#F5F5F0"><circle cx="1.9" cy="1.7" r=".55"/><circle cx="5.7" cy="1.7" r=".55"/><circle cx="1.9" cy="4.6" r=".55"/><circle cx="5.7" cy="4.6" r=".55"/></g></svg>En</span>
-      </button>
+      <button class="lang-toggle" id="langToggle" aria-label="Switch language"></button>
       <button class="icon-btn" aria-label="Ray Assistant" onclick="openAssist()">
         <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.35-4.35"/></svg>
       </button>
@@ -792,7 +790,7 @@ if (typeof IntersectionObserver === 'undefined') {
 
 <!-- Hero -->
 <section class="hero" id="top">
-  <div class="h-img" id="heroImg"><img data-ph="hero" alt="Warm room lit by a Ray Home Accessories pendant lamp"></div>
+  <div class="h-img" id="heroImg"><picture><source media="(max-width:720px)" srcset="assets/hero-portrait.jpg"><img data-ph="hero" alt="Warm room lit by a Ray Home Accessories pendant lamp"></picture></div>
   <div class="container">
     <div class="hero-txt">
       <h1 id="heroTitle" data-i18n-html="heroTitle"></h1>
@@ -2565,21 +2563,32 @@ document.querySelectorAll('.cg-item').forEach(item => {
   const go = item.querySelector('.cg-go');
   let cur = 0, timer = null, byHover = false, lastKey = '';
   const rnd = a => a[Math.floor(Math.random() * a.length)];
+  let loading = false;
+  /* v5.38: الصورة بتتحمل الأول وبعد ما تجهز بالظبط بيبدأ الفيد — كده مفيش جليتش ولا فلاش فاضي ولا هنج */
   function step(){
-    const pool = CG_POOLS[cat]; if(!pool || !pool.length) return;
+    const pool = CG_POOLS[cat]; if(!pool || !pool.length || loading) return;
     const id = rnd(pool), p = P(id);
     const n = Math.max(1, p.sw || 15);
     let col = FILAMENTS[Math.floor(Math.random() * n)][0];
     if(id + '|' + col === lastKey) col = FILAMENTS[Math.floor(Math.random() * n)][0];
-    lastKey = id + '|' + col;
-    const nxt = 1 - cur;
-    pk[nxt].src = swSrc(id, col);
-    pk[nxt].classList.add('show');
-    pk[cur].classList.remove('show');
-    cur = nxt;
-    capDot.style.background = FIL[col] || '#fff';
-    capTxt.textContent = p.name[lang] + ' · ' + cname(col);
-    go.innerHTML = (T().cgGo || 'Go to') + ' ' + item.querySelector('.cg-name').textContent.trim() + ' <span class="cg-arr">\u2192</span>';
+    const key = id + '|' + col;
+    if(key === lastKey) return;
+    loading = true;
+    const pre = new Image();
+    pre.onload = () => {
+      loading = false; lastKey = key;
+      const nxt = 1 - cur;
+      pk[nxt].classList.remove('show');
+      pk[nxt].src = swSrc(id, col);
+      requestAnimationFrame(() => requestAnimationFrame(() => pk[nxt].classList.add('show')));
+      pk[cur].classList.remove('show');
+      cur = nxt;
+      capDot.style.background = FIL[col] || '#fff';
+      capTxt.textContent = p.name[lang] + ' · ' + cname(col);
+      go.innerHTML = (T().cgGo || 'Go to') + ' ' + item.querySelector('.cg-name').textContent.trim() + ' <span class="cg-arr">\u2192</span>';
+    };
+    pre.onerror = () => { loading = false; };
+    pre.src = swSrc(id, col);
   }
   function start(hover){ if(timer) return; byHover = !!hover; item.classList.add('peeking'); step(); timer = setInterval(step, 1700); }
   function stop(){ if(byHover){ clearInterval(timer); timer = null; item.classList.remove('peeking'); } }
@@ -2742,9 +2751,11 @@ function applyLang(l){
 }
 const FLAG_EG = '<svg class="flg" viewBox="0 0 24 16" width="18" height="12" aria-hidden="true"><rect width="24" height="5.34" fill="#CE1126"/><rect y="5.33" width="24" height="5.34" fill="#ffffff"/><rect y="10.66" width="24" height="5.34" fill="#1d1a16"/><circle cx="12" cy="8" r="1.9" fill="#C09300"/></svg>';
 const FLAG_US = '<svg class="flg" viewBox="0 0 24 16" width="18" height="12" aria-hidden="true"><rect width="24" height="16" fill="#ffffff"/><g fill="#B22234"><rect y="0.55" width="24" height="1.1"/><rect y="2.88" width="24" height="1.1"/><rect y="5.21" width="24" height="1.1"/><rect y="7.54" width="24" height="1.1"/><rect y="9.87" width="24" height="1.1"/><rect y="12.2" width="24" height="1.1"/><rect y="14.53" width="24" height="1.1"/></g><rect width="10.5" height="8.65" fill="#3C3B6E"/></svg>';
+const LG_EGYPT = '<svg viewBox="0 0 18 12" aria-hidden="true"><rect width="18" height="4" fill="#CE1126"/><rect y="4" width="18" height="4" fill="#F5F5F0"/><rect y="8" width="18" height="4" fill="#262622"/></svg>';
+const LG_USA = '<svg viewBox="0 0 18 12" aria-hidden="true"><rect width="18" height="12" fill="#B22234"/><g fill="#F5F5F0"><rect y="1.4" width="18" height="1.2"/><rect y="3.8" width="18" height="1.2"/><rect y="6.2" width="18" height="1.2"/><rect y="8.6" width="18" height="1.2"/></g><rect width="7.6" height="6.2" fill="#3C3B6E"/><g fill="#F5F5F0"><circle cx="1.9" cy="1.7" r=".55"/><circle cx="5.7" cy="1.7" r=".55"/><circle cx="1.9" cy="4.6" r=".55"/><circle cx="5.7" cy="4.6" r=".55"/></g></svg>';
+/* v5.38: دايرة واحدة بتعرض لغة التبديل — علم مصر + ع وأنت في الإنجليزي، والعلم الأمريكي + En وأنت في العربي */
 function setLangBtn(){
-  $('#langToggle .lg-seg.ar').classList.toggle('on', lang==='ar');
-  $('#langToggle .lg-seg.en').classList.toggle('on', lang==='en');
+  $('#langToggle').innerHTML = lang === 'en' ? LG_EGYPT + '<b>ع</b>' : LG_USA + '<b>En</b>';
 }
 $('#langToggle').addEventListener('click', ()=>{
   const next = lang==='en' ? 'ar' : 'en';
