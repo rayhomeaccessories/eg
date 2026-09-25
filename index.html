@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<!-- ===== Ray Home Accessories — v5.38 · Polish — زرار اللغة دايرة واحدة (علم + حرف حسب لغة التبديل) · هيرو الموبايل portrait 3:4 من غير المستطيل الغامق (ظل نص بداله) · شارة الخصم أصغر · إصلاح جليتش peek الكاتيجوريز (تحميل مسبق قبل الفيد + زووم على الحاوية مش الصور) ===== -->
+<!-- ===== Ray Home Accessories — v5.39 · Assistant — رسالة واتساب من غير صور + ألوان بالعربي · إصلاح زرار الهفضل على اللمبات (كان مكسور) وبقى بيعرض المنتجات · صور نتائج الاسيستانت بلون الاقتراح · أسئلة أبسط وترجمة واقعية · صورة konio البينك بنفس ستايل الباقي · إلغاء New Cairo من الصفحة ===== -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="assets/fonts.css">
 <title>Ray Home Accessories — 3D Printed Warmth for Every Home</title>
@@ -1214,7 +1214,7 @@ const I18N = {
     docTitle: 'Ray Home Accessories — 3D Printed Warmth for Every Home',
     metaDesc: 'Ray Home Accessories — original 3D-printed lamps, vases and planter pots. Printed to order in 15 colors and finished by hand. Free shipping across Egypt.',
     announce: '✦  Free shipping on <b>all orders</b> across Egypt',
-    location: 'New Cairo',
+    location: 'Egypt',
     'nav.home':'Home','nav.cats':'Categories','nav.desk':'Table Lamp','nav.hanging':'Pendent Lamp','nav.vases':'Vases','nav.planters':'Planter Pots','nav.contact':'Contact',
     catsOver:'Everything in one place',catsH:'All Categories',cgGo:'Go to',
     heroTitle: 'Warmth for your home, <em>printed layer by layer</em>',
@@ -1240,14 +1240,14 @@ const I18N = {
     viewed:(a,b)=>`You've viewed ${a} of ${b} products`,
     loadMore:'Load More',
     aTitle:'Ray Assistant', aSub:'I ask a few questions, I pick for you',
-    aIntro:"Welcome to Ray! I'm your personal decor advisor — tell me what you're after and I'll find the perfect piece (and yes, I'm good at convincing 😉).",
-    aQOcc:'And who is this piece for?',
+    aIntro:"Hey, welcome to Ray! A few quick questions and I'll pick the right piece for you 😉.",
+    aQOcc:'Who is it for?',
     aOccGift:'A gift 🎁', aOccSelf:'For myself', aOccHome:'A new home', aOccOffice:'My workspace',
     aSayGift:"A gift! Great call — nobody forgets who gave them a Ray piece.",
     aSaySelf:"For you then — you deserve something that makes your space feel like home.",
     aSayHome:"A new home! Congratulations — lighting is the fastest way to make it feel yours.",
     aSayOffice:"Smart move — one warm lamp changes how the whole workday feels.",
-    aQVibe:'What vibe are we going for?',
+    aQVibe:'What style do you like?',
     aVibeCozy:'Warm & cozy', aVibeModern:'Modern & minimal', aVibeClassic:'Classic & elegant', aVibeBold:'Bold & colorful',
     aSayCozy:"Cozy it is — warm light and earthy tones. My personal favorite.",
     aSayModern:"Modern — clean lines, statement pieces. Great taste.",
@@ -1261,13 +1261,13 @@ const I18N = {
     aComboPitch:"And to complete the look, this pairs beautifully with your pick:",
     aFtNone:"Honestly? These are already the best matches for you 😊",
     aWaMsg:n=>`Hello Ray! I'd like to order: ${n} 🌟`,
-    aQ1:"What would you like to start with?",
+    aQ1:"What are you looking for?",
     aLamp:'A lamp', aVase:'A vase', aPlant:'A planter pot', aAny:'Surprise me',
-    aQ2:"Where will the lamp live?",
+    aQ2:"Where will you put it?",
     aDesk:'On a table or desk', aHang:'Hanging from the ceiling',
-    aQ3:'Which colors do you love most?',
+    aQ3:'Which colors do you like?',
     aWarm:'Warm & golden', aWhite:'White & soft', aDark:'Dark & moody', aNatural:'Natural & woody',
-    aQ4:"What is your budget?",
+    aQ4:"How much do you want to spend?",
     aB1:'Under 1,200 LE', aB2:'1,200 – 1,700 LE', aB3:'Over 1,700 LE',
     aPick:"Perfect — here's what I picked for you:",
     aHint:'Tap "View" on any piece, or add it straight to your cart.',
@@ -1277,7 +1277,7 @@ const I18N = {
     cstMsg:'Have a different idea? Want us to make something just for you? Send us your idea, and one of our team will get in touch with you to bring it to life.',
     cstS1:'Send your idea', cstS2:'We confirm the details', cstS3:'We print your piece',
     cstCta:'Send via WhatsApp',
-    aThinking:'Okay — let me put this together for you…',
+    aThinking:'One second, putting it together…',
     aSayLamp:'Great choice — lamps are our specialty.',
     aSayVase:'Vases? They change a whole shelf.',
     aSayPlant:'Green! Your plants deserve a custom home.',
@@ -1293,17 +1293,17 @@ const I18N = {
     aSayB3:'Over 1,700 LE — we have beautiful pieces there.',
     aCatLamp:'a lamp', aCatVase:'a vase', aCatPlant:'a planter pot', aCatAny:'a piece',
     aCatRLamp:'lamps', aCatRVase:'vases', aCatRPlant:'planters', aCatRAny:'pieces',
-    aCatCheaper:(c,mx,nm,lm)=>`Here's the thing: our ${c} top out at ${mx} — the finest one is the ${nm}. If you'd rather spend more, our lamps go up to ${lm}.`,
+    aCatCheaper:(c,mx,nm,lm)=>`Quick heads-up: our ${c} top out at ${mx} — the finest is the ${nm}. Our lamps go up to ${lm} if you can stretch.`,
     aCatPricier:(c,mn,alt)=>`To be straight with you — ${c} start at ${mn}, so this budget won't cover them. Within your budget we do have other pieces (${alt}). Want to see those?`,
     aOptLamps:'Show me the lamps', aOptStay:'The best one is fine',
-    aOptCheaper:'Yes, show me vases & planters', aOptKeep:"I'll stick with these",
+    aOptCheaper:'Yes, show me vases & planters', aOptKeep:'Stick with the lamps', aKeepSay:'Of course — here are our lamps anyway, take your time:',
     aCol:'Suggested color',
     aReasonBoth:'matches your colors and budget',
     aReasonColor:'matches your colors',
     aReasonBudget:'fits your budget',
     aReasonClose:'closest match to your taste',
     storyOver:'Our Story', storyTitle:'Made slowly, for the rooms you actually live in.',
-    storyP1:"Ray is a small workshop in New Cairo with one simple rule: if we would not put it in our own homes, we do not ship it. Every lamp, vase and planter starts as a sketch, becomes a 3D print layer by layer, and passes through our own hands — sanded, checked and sealed — before it becomes yours.",
+    storyP1:"Ray is a small workshop with one simple rule: if we would not put it in our own homes, we do not ship it. Every lamp, vase and planter starts as a sketch, becomes a 3D print layer by layer, and passes through our own hands — sanded, checked and sealed — before it becomes yours.",
     storyP2:"We do not mass produce. Your piece is printed only after you choose it, in one of fifteen colors picked to sit quietly in real homes — bone whites and warm sands, not catalog gloss. That is exactly why it can end up being exactly what you wanted.",
     storyP3:'One workshop. One printer humming late into the night. One piece at a time. Welcome to Ray.',
     f1t:'Printed in Small Batches', f1p:'We do not keep stock — every piece is printed only after you order it, then sanded, checked and sealed by hand in our studio before it is packed and shipped.',
@@ -1312,7 +1312,7 @@ const I18N = {
     fShop:'Shop', fHelp:'Help', fTouch:'Get in Touch',
     fShopDesk:'Table Lamp', fShopHang:'Pendent Lamp', fShopVases:'Vases', fShopPlant:'Planter Pots', fShopNew:'Best Sellers', fShopSale:'Sale',
     fShipping:'Shipping & Delivery', fReturns:'Returns & Exchanges', fCare:'Care Guide', fCustom:'Custom Orders', faq:'FAQ',
-    fBlurb:'Original 3D-printed lamps, vases and planters — made to order in small batches and finished by hand in our New Cairo studio.',
+    fBlurb:'Original 3D-printed lamps, vases and planters — made to order in small batches and finished by hand in our studio.',
     copyright:'© 2026 Ray Home Accessories — All rights reserved',
     cartTitle:'Your Cart', subtotal:'Subtotal', shipping:'Shipping', free:'Free', total:'Total',
     checkoutWa:'Checkout via WhatsApp', clear:'Clear cart', clearTitle:'Clear your cart?', clearMsg:'All items will be removed.', clearCancel:'Keep it', clearYes:'Yes, clear it',
@@ -1352,7 +1352,7 @@ const I18N = {
     docTitle: 'Ray Home Accessories — دفء مطبوع ثلاثي الأبعاد لكل ركن في منزلك',
     metaDesc: 'Ray Home Accessories — مصابيح ومزهريات وأصص نباتات مطبوعة ثلاثي الأبعاد بتصاميم أصلية. تُطبع عند الطلب بـ 15 لون وتُشطّب يدويًا. شحن مجاني لكل محافظات مصر.',
     announce: '✦ شحن مجاني لكل الطلبات في جميع أنحاء مصر',
-    location: 'القاهرة الجديدة',
+    location: 'مصر',
     'nav.home':'الرئيسية','nav.cats':'الأقسام','nav.desk':'لمبات المكتب','nav.hanging':'لمبات معلقة','nav.vases':'فازات','nav.planters':'أواني الزرع','nav.contact':'تواصل معنا',
     catsOver:'تسوّق حسب القسم',catsH:'الأقسام',cgGo:'اذهب إلى',
     heroTitle: 'دفء لمنزلك، <em>مطبوع طبقة فوق طبقة</em>',
@@ -1378,70 +1378,70 @@ const I18N = {
     viewed:(a,b)=>`شاهدت ${a} من ${b} قطع`,
     loadMore:'عرض المزيد',
     aTitle:'مساعد Ray', aSub:'أسألك سؤالين وأختار لك',
-    aIntro:'أهلًا بيك في راي! أنا مستشارك الشخصي للديكور — قولّي بتدوّر على إيه وأنا هلاقيلك القطعة المثالية (واطمّن، مقنِع جدًا 😉).',
+    aIntro:'أهلًا بيك في راي! هسألك كام سؤال بسيط وأختارلك القطعة المناسبة 😉',
     aQOcc:'والقطعة دي لمين؟',
     aOccGift:'هدية 🎁', aOccSelf:'لنفسي', aOccHome:'بيت جديد', aOccOffice:'مكتب / شغل',
-    aSayGift:'هدية! اختيار موفق — اللي ياخد قطعة من راي عمره ما بينساها.',
-    aSaySelf:'لك أنت إذًا — تستاهل حاجة تخلّي مكانك إحساسه بيت حقيقي.',
-    aSayHome:'بيت جديد! ألف مبروك — الإضاءة أسرع حاجة تخلّي المكان يبقى ليك.',
-    aSayOffice:'خطوة ذكية — لمبة دافية على المكتب بتغير إحساس اليوم كله.',
-    aQVibe:'عايز الإحساس العام يبقى إيه؟',
-    aVibeCozy:'دافي ومريح', aVibeModern:'عصري ومينيمال', aVibeClassic:'كلاسيكي وأنيق', aVibeBold:'جسور وملوّن',
-    aSayCozy:'دافي إذًا — نور عنصر ودرجات ترابية. ده المفضل عندي شخصيًا.',
-    aSayModern:'عصري — خطوط نضيفة وقطع ليها شخصية. ذوقك حلو.',
-    aSayClassic:'كلاسيكي أنيق — القطع الزمنية عمي ما بتخرج من الموضة.',
-    aSayBold:'جسور! يبقى نختار حاجة تتكلم عن نفسها.',
-    aPitch:'دي أفضل اختياراتي ليك — وكلها عليها خصومات شغالة دلوقتي 🔥',
+    aSayGift:'هدية ولا أجمل! اللي بياخد قطعة من راي مش بينساها.',
+    aSaySelf:'لأنت؟ تستاهل حاجة حلوة تخلي مكانك إحساسه بيت.',
+    aSayHome:'بيت جديد! ألف مبروك — اللمبة أسرع حاجة تخلّي المكان يبقى بيت فعلًا.',
+    aSayOffice:'خطوة ذكية — لمبة دافية على المكتب بتغيّر مزاج اليوم كله.',
+    aQVibe:'تحب الستايل يبقى إيه؟',
+    aVibeCozy:'دافي ومريح', aVibeModern:'عصري وبسيط', aVibeClassic:'كلاسيكي وشيك', aVibeBold:'جسور وملوّن',
+    aSayCozy:'دافي ومريح — ده المفضل عندي كمان.',
+    aSayModern:'عصري — ذوقك حلو فعلًا.',
+    aSayClassic:'كلاسيكي — الستايل ده عمره ما يخرج من الموضة.',
+    aSayBold:'جسور! يبقى نشوف حاجة ليها شخصية قوية.',
+    aPitch:'دي أحسن اختياراتي ليك — وكلها عليها خصومات دلوقتي 🔥',
     aReasonOcc:'مثالية للمناسبة', aReasonVibe:'طابقة مع إحساسك بالظبط',
-    aFtCheaper:'حاجة أخف على الجيب', aFtFancier:'حاجة أفخم', aFtCombo:'كمّل اللوك ✨', aFtWa:'اطلب على الواتساب',
-    aCheaperPitch:'نفس الستايل بس أرخص — وجميلة بنفس القدر:',
-    aFancierPitch:'لو حابب ترفع المستوى، دي تستاهل كل جنيه فيها:',
-    aComboPitch:'وعشان اللوك يكتمل، القطعة دي بتكمل اختيارك بشكل رائع:',
-    aFtNone:'بصراحة؟ دي بالفعل أحسن اختيارات ليك 😊',
+    aFtCheaper:'حاجة أخف على الجيب', aFtFancier:'حاجة أفخم شوية', aFtCombo:'كمّل اللوك ✨', aFtWa:'اطلب على الواتساب',
+    aCheaperPitch:'نفس الستايل بس أرخص — وبرضو حلوة:',
+    aFancierPitch:'لو حابب ترفع المستوى، دول يستاهلوا:',
+    aComboPitch:'وعشان اللوك يكتمل، القطعة دي بتكمل اختيارك:',
+    aFtNone:'بصراحة؟ دي أحسن حاجة مناسبة ليك 😊',
     aWaMsg:n=>`أهلًا راي! عايز أطلب: ${n} 🌟`,
-    aQ1:'بماذا تحب أن نبدأ؟',
+    aQ1:'بتدوّر على إيه؟',
     aLamp:'لمبة', aVase:'فازة', aPlant:'إناء زرع', aAny:'فاجئني',
-    aQ2:'أين ستضع اللمبة؟',
+    aQ2:'هتحطها فين؟',
     aDesk:'على مكتب أو طاولة', aHang:'معلقة من السقف',
-    aQ3:'ما الألوان التي تفضلها؟',
+    aQ3:'إيه الألوان اللي بتحبها؟',
     aWarm:'درجات دافئة', aWhite:'أبيض هادئ', aDark:'داكن وجذاب', aNatural:'طبيعية وخشبية',
-    aQ4:'ما ميزانيتك؟',
-    aB1:'أقل من 1,200 ج.م', aB2:'من 1,200 إلى 1,700 ج.م', aB3:'أكثر من 1,700 ج.م',
-    aPick:'رائع — هذه قطعة مختارة لك:',
-    aHint:'اضغط «عرض» على أي قطعة، أو أضفها مباشرة إلى سلتك.',
+    aQ4:'مستعد تصرف كام؟',
+    aB1:'أقل من 1,200 جنيه', aB2:'من 1,200 لـ 1,700 جنيه', aB3:'أكتر من 1,700 جنيه',
+    aPick:'تمام — دي المختارة ليك:',
+    aHint:'دوس «عرض» على أي قطعة تشوفها، أو ضيفها للسلة على طول.',
     aView:'عرض', aAdd:'إضافة', aAgain:'ابدأ من جديد',
     magicBtn:'اضغط هنا لترى السحر', mgOver:'دوس على اللمبة — وشوف السحر', mgTitle:'معرض راي السحري', customCard:'طلبات خاصة', customCardMsg:'لم تجد ما تبحث عنه؟ نطبع أفكارك أنت.', customBtn:'اطلب قطعتك',
     cstOver:'صُنع لأجلك', cstTitle:'تخيّلها… ونحن نطبعها.',
     cstMsg:'لديك فكرة مختلفة وتريدنا أن نصنعها لك؟ أرسل لنا فكرتك، وسيتواصل معك أحد أعضاء فريقنا لتحويلها إلى واقع.',
     cstS1:'أرسل فكرتك', cstS2:'نؤكد التفاصيل معك', cstS3:'نطبع قطعتك',
     cstCta:'أرسل عبر واتساب',
-    aThinking:'حسنًا… دعني أرتب لك الاختيار…',
-    aSayLamp:'اختيار موفق — اللمبات تخصصنا.',
-    aSayVase:'فازة؟ إنها تغيّر الرف كله.',
+    aThinking:'ثواني أجهزهالك…',
+    aSayLamp:'تمام — اللمبات تخصصنا.',
+    aSayVase:'فازة؟ دي بتغيّر الرف كله.',
     aSayPlant:'أخضر! نباتاتك تستحق منزلًا على مقاسها.',
-    aSayAny:'اترك الأمر لي.',
-    aSayDesk:'ممتاز — على مكتب أو كونسول.',
-    aSayHang:'معلقة — ضوء دافئ من الأعلى.',
-    aSayWarm:'درجات دافئة — دفء لا يقاوم.',
-    aSayWhite:'أبيض هادئ — لا يخرج عن الموضة أبدًا.',
-    aSayDark:'داكن — أنيق وقوي.',
-    aSayNatural:'درجات طبيعية — اختيار لا يخيب.',
-    aSayB1:'أقل من 1,200 — عندنا قطع رائعة في هذا النطاق.',
-    aSayB2:'من 1,200 إلى 1,700 — النطاق الذهبي.',
-    aSayB3:'أكثر من 1,700 — لدينا قطع جميلة في هذا النطاق.',
+    aSayAny:'سيبها عليّا.',
+    aSayDesk:'تمام — على مكتب أو طاولة جانبية.',
+    aSayHang:'معلقة — نور دافي من فوق.',
+    aSayWarm:'درجات دافية — دفء مضبوط.',
+    aSayWhite:'أبيض هادي — بيظبط مع أي مكان.',
+    aSayDark:'غامق — شيك وقوي.',
+    aSayNatural:'درجات طبيعية — مضمونة ومريحة للعين.',
+    aSayB1:'أقل من 1,200 — عندنا قطع حلوة في النطاق ده.',
+    aSayB2:'من 1,200 لـ 1,700 — أحسن نطاق عننا.',
+    aSayB3:'فوق 1,700 — عندنا قطع جميلة جدًا.',
     aCatLamp:'لمبة', aCatVase:'فازة', aCatPlant:'إناء زرع', aCatAny:'قطعة',
     aCatRLamp:'اللمبات', aCatRVase:'الفازات', aCatRPlant:'أواني الزرع', aCatRAny:'القطع',
-    aCatCheaper:(c,mx,nm,lm)=>`الحقيقة أن ${c} لدينا تصل حتى ${mx} — وأجملها هي ${nm}. وإن رغبت في رفع الميزانية، فلمباتنا تصل حتى ${lm}.`,
-    aCatPricier:(c,mn,alt)=>`بصراحة — ${c} تبدأ من ${mn}، لذا هذه الميزانية لن تكفيها. ضمن ميزانيتك لدينا قطع أخرى (${alt}). أعرضها عليك؟`,
-    aOptLamps:'أرني اللمبات', aOptStay:'الأفضل تكفي',
-    aOptCheaper:'نعم، أرني الفازات وأواني الزرع', aOptKeep:'سأكتفي بهذه',
+    aCatCheaper:(c,mx,nm,lm)=>`على فكرة، أغلى حاجة في ${c} بـ${mx} — وأحسنها ${nm}. ولو حابب تزوّد شوية، اللمبات عندنا بتوصل ${lm}.`,
+    aCatPricier:(c,mn,alt)=>`هقولك بصراحة — ${c} بتبدأ من ${mn}، يعني الميزانية دي مش هتكفيها. لكن في ميزانيتك عندنا قطع تانية (${alt}). أعرضهالك؟`,
+    aOptLamps:'وريني اللمبات', aOptStay:'خليها أحسن واحدة',
+    aOptCheaper:'أيوه، وريني الفازات وأواني الزرع', aOptKeep:'هفضل على اللمبات', aKeepSay:'أكيد — دي اللمبات بتاعتنا، خد وقتك واختار اللي يعجبك:',
     aCol:'اللون المقترح',
     aReasonBoth:'تناسب ألوانك وميزانيتك',
     aReasonColor:'تناسب الألوان التي اخترتها',
     aReasonBudget:'في حدود ميزانيتك',
     aReasonClose:'الأقرب لذوقك',
     storyOver:'قصتنا', storyTitle:'بنصنعها على مهل، للأوض اللي بتعيش فيها فعلًا.',
-    storyP1:'Ray ورشة صغيرة في القاهرة الجديدة بقاعدة واحدة: لو مش هنحطها في بيوتنا، مش هنشحنها. كل لمبة وفازة وأصيص بتبدأ برسمة، وتتحول لطباعة ثلاثية الأبعاد طبقة ورا طبقة، وبتعدّي على إيدينا — صقلًا وفحصًا وتغليفًا — قبل ما تبقى بتاعتك.',
+    storyP1:'Ray ورشة صغيرة بقاعدة واحدة: لو مش هنحطها في بيوتنا، مش هنشحنها. كل لمبة وفازة وأصيص بتبدأ برسمة، وتتحول لطباعة ثلاثية الأبعاد طبقة ورا طبقة، وبتعدّي على إيدينا — صقلًا وفحصًا وتغليفًا — قبل ما تبقى بتاعتك.',
     storyP2:'ما بننتجش بالجملة. قطعتك بتتطبع بعد ما تختارها، بواحد من خمستاشر لون اتاختاروا عشان يقعدوا بهدوء في البيوت الحقيقية — أبيض عاجي ورمال دافية، مش لمعة كتالوجات. وعشان كده بتطلع القطعة بالظبط على ذوقك.',
     storyP3:'ورشة واحدة، وطابعة بتكمل شغلها بالليل، وقطعة واحدة في كل مرة. أهلًا بيك في Ray.',
     f1t:'طباعة بدفعات صغيرة', f1p:'ما بنخزّنش — بنطبع كل قطعة بعد طلبك مباشرة، وبعدها بتتصقل وتتفحص وتتغلف بإيدنا في الاستوديو قبل الشحن.',
@@ -1450,7 +1450,7 @@ const I18N = {
     fShop:'تسوّق', fHelp:'المساعدة', fTouch:'تواصل معنا',
     fShopDesk:'لمبات المكتب', fShopHang:'لمبات معلقة', fShopVases:'فازات', fShopPlant:'أواني الزرع', fShopNew:'الأكثر مبيعًا', fShopSale:'العروض',
     fShipping:'الشحن والتوصيل', fReturns:'الاستبدال والاسترجاع', fCare:'دليل العناية', fCustom:'طلبات خاصة', faq:'الأسئلة الشائعة',
-    fBlurb:'مصابيح ومزهريات وأصص نباتات مطبوعة ثلاثي الأبعاد بتصاميم أصلية — تُصنع عند الطلب بدفعات صغيرة وتُشطّب يدويًا في استوديو القاهرة الجديدة.',
+    fBlurb:'مصابيح ومزهريات وأصص نباتات مطبوعة ثلاثي الأبعاد بتصاميم أصلية — تُصنع عند الطلب بدفعات صغيرة وتُشطّب يدويًا في استوديو راي.',
     copyright:'© 2026 Ray Home Accessories — جميع الحقوق محفوظة',
     cartTitle:'سلة مشترياتك', subtotal:'الإجمالي الفرعي', shipping:'الشحن', free:'مجاني', total:'الإجمالي',
     checkoutWa:'إتمام الطلب عبر واتساب', clear:'إفراغ السلة', clearTitle:'إفراغ السلة؟', clearMsg:'ستُحذف جميع القطع من سلتك.', clearCancel:'تراجع', clearYes:'نعم، أفرغها',
@@ -1490,7 +1490,7 @@ const I18N = {
 
 /* ================== EGYPT (27 governorates) ================== */
 const EGYPT = [
-  {en:'Cairo',ar:'القاهرة',c:[['Central Cairo','وسط القاهرة'],['Dokki','الدقي'],['Zamalek','الزمالك'],['Nasr City (Heliopolis)','مدينة نصر'],['Shoubra','شبرا'],['El Mansheya','المنشية'],['Mokattam','المقطم'],['Helwan','حلوان'],['New Cairo','القاهرة الجديدة'],['Obour','العبور']]},
+  {en:'Cairo',ar:'القاهرة',c:[['Central Cairo','وسط القاهرة'],['Dokki','الدقي'],['Zamalek','الزمالك'],['Nasr City (Heliopolis)','مدينة نصر'],['Shoubra','شبرا'],['El Mansheya','المنشية'],['Mokattam','المقطم'],['Helwan','حلوان'],['Obour','العبور']]},
   {en:'Alexandria',ar:'الإسكندرية',c:[['Central Alexandria','وسط البلد'],['Smouha','سموحة'],['Stanley','ستانلي'],['Miami','ميامي'],['West','الغرب'],['East','الشرق'],['South','جنوب']]},
   {en:'Giza',ar:'الجيزة',c:[['Giza','الجيزة'],['Al Haram','الهرم'],['Maadi','المعادي'],['Dokki','الدقي'],['El Tora','العجوزة'],['El Refa','الوراق'],['15th of Ramadan City','15 مايو'],['6th of October City','6 أكتوبر'],['5th Settlement','الحي الخامس']]},
   {en:'Qalyubia',ar:'القليوبية',c:[['Benha','بنها'],['Shubra El Kheima','شبرا الخيمة'],['Qalyub','قليوب'],['Al Khanka','الخانكة'],['Kafr El Dawar','كفر الدوار']]},
@@ -1975,7 +1975,7 @@ function cstWa(){
   const msg = lang === 'ar'
     ? 'مرحبًا راي! عندي فكرة لقطعة خاصة وحابب اطلبها: '
     : 'Hi Ray Home Accessories! I have an idea for a custom piece: ';
-  (async () => { const f = CST_IMGS[cstKey] ? await smallImgFile(CST_IMGS[cstKey], 'custom-' + cstKey) : null; waShare(msg, f ? [f] : []); })();
+  waShare(msg);
 }
 
 /* ================== AI ASSISTANT ================== */
@@ -2021,10 +2021,11 @@ function aMsg(who, html){
   log.scrollTop = log.scrollHeight;
 }
 function aOpts(rows){
+  const q = x => String(x).replace(/'/g, "\\'"); /* v5.39: التسميات اللي فيها فاصلة عليا كانت بتكسر الزرار */
   $('#aOpts').innerHTML = rows.map(r =>
     (r[0] === 'nav'
-      ? `<button class="a-opt" onclick="aNav('${r[1]}','${r[2]}')">${r[2]}</button>`
-      : `<button class="a-opt" onclick="aPick('${r[0]}','${r[1]}','${r[2]}')">${r[2]}</button>`)).join('');
+      ? `<button class="a-opt" onclick="aNav('${r[1]}','${q(r[2])}')">${r[2]}</button>`
+      : `<button class="a-opt" onclick="aPick('${r[0]}','${r[1]}','${q(r[2])}')">${r[2]}</button>`)).join('');
 }
 function aNav(k, label){
   $('#aOpts').innerHTML = '';
@@ -2036,6 +2037,8 @@ function aNav(k, label){
   if(k === 'cheaper2'){ setTimeout(()=>aFollow('cheap'), 650); return; }
   if(k === 'fancier'){ setTimeout(()=>aFollow('fancy'), 650); return; }
   if(k === 'combo'){ setTimeout(aCombo, 650); return; }
+  /* v5.39: «هفضل على اللمبات» — يعرض المنتجات على طول بدل ما الزبون يقف ويمشي */
+  if(k === 'keep'){ aMsg('a', T().aKeepSay); aAns.force = true; setTimeout(aResults, 750); return; }
   aAns.force = true;
   setTimeout(aResults, 850);
 }
@@ -2114,7 +2117,10 @@ function aItemRow(r){
   if(r.occOk) rs.push(t.aReasonOcc);
   if(r.vibeOk) rs.push(t.aReasonVibe);
   const reason = rs.join(' · ');
-  return `<div class="a-item"><span class="a-img"><img data-pid="${r.id}" src="${pMain(r.id)}" alt="${p.name.en}" onerror="imgFall(this)">${hasLit(r.id) ? `<img class="lit-layer" src="${P(r.id).lit}" alt="" onerror="this.style.display='none'">` : ''}</span>
+  /* v5.39: الصورة بلون الاقتراح نفسه — مش صورة ثابتة بلون تاني */
+  const src = sug ? ((p.lit && p.litColor === sug) ? p.img : swSrc(r.id, sug)) : pMain(r.id);
+  const litOk = sug ? (p.lit && p.litColor === sug) : hasLit(r.id);
+  return `<div class="a-item"><span class="a-img"><img data-pid="${r.id}" src="${src}" alt="${p.name.en}" onerror="imgFall(this)">${litOk ? `<img class="lit-layer" src="${P(r.id).lit}" alt="" onerror="this.style.display='none'">` : ''}</span>
       <div class="a-it"><span>${p.name[lang]}</span>
         <span class="a-reason">${reason}</span>
         ${sug ? `<span class="a-col"><i style="background:${FIL[sug]}"></i>${t.aCol}: ${cname(sug)} <em class="ltr">${FIL[sug]}</em></span>` : ''}
@@ -2407,22 +2413,13 @@ async function submitOrder(e){
   const orderNo = 'RHD-' + Math.floor(1000 + Math.random()*9000);
   let msg = `${t.waHead}\n${t.waNo} ${orderNo}\n\n${t.waItems}\n`;
   orderItems.forEach((i,n)=>{
-    msg += `${n+1}. ${i.p.name[lang]}\n   • ${t.waColor}: ${i.color} (${i.hex})\n   • ${t.waQty}: ${i.qty} × ${LE(i.unit)} = ${LE(i.unit*i.qty)}\n`;
+    msg += `${n+1}. ${i.p.name[lang]}\n   • ${t.waColor}: ${cname(i.color)} (${i.hex})\n   • ${t.waQty}: ${i.qty} × ${LE(i.unit)} = ${LE(i.unit*i.qty)}\n`;
   });
   msg += `\n*${t.waTotal}: ${LE(total)}*\n\n${t.waDelivery}\n`;
   msg += `${t.waName}: ${name}\n${t.waGov}: ${lang==='ar'?EGYPT[gi].ar:EGYPT[gi].en}\n${t.waCity}: ${city}\n${t.waAddr}: ${addr}\n${t.waPhone}: ${phone}`;
   if(alt) msg += `\n${t.waAlt}: ${alt}`;
-  let files = [];
-  try {
-    const sent = {};
-    for (const i of orderItems) {
-      if (sent[i.p.id]) continue;
-      sent[i.p.id] = 1;
-      const f = await smallImgFile(i.p.img, i.p.id);
-      if (f) files.push(f);
-    }
-  } catch (e) {}
-  waShare(msg, files);
+  /* v5.39: رسالة الواتس من غير صور — التفاصيل كلها والألوان مكتوبة */
+  waShare(msg);
   closeAll();
   toast(t.orderOpened);
   return false;
