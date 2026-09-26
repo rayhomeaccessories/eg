@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<!-- ===== Ray Home Accessories — v5.42 · موبايل — نص الهيرو رجع أسود واضح فوق غسلة كريمية خفيفة، جاليري راي بقى عمودين أطول وأعرض والاسم مش لازق في المنتج، والسهم بيبص على زرار اللمبة دايمًا وبي نطط «دوس عليا» لما توصل للجاليري · الاسيستانت — اعتذار لطيف بدل «دي أحسن حاجة ليك»، «حابب تصرف كام؟»، و«هفضل على اللمبات» بيجيب أحسن لمبات على ذوقك بميزانية أعلى شوية ===== -->
+<!-- ===== Ray Home Accessories — v5.43 · أوردر الواتساب بيتفتح على الواتساب على طول بالرسالة كاملة (القطع والألوان والإجمالي والاسم والعنوان والتليفون) — شيلنا قايمة المشاركة بتاعة الموبايل اللي كانت بتفتح الميل بدل الواتساب ===== -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="assets/fonts.css">
 <title>Ray Home Accessories — 3D Printed Warmth for Every Home</title>
@@ -1194,12 +1194,9 @@ async function smallImgFile(dataUri, id, maxDim){
     return await new Promise(res => cv.toBlob(b => res(b ? new File([b], id + '.jpg', { type: 'image/jpeg' }) : null), 'image/jpeg', 0.8));
   } catch (e) { return null; }
 }
-function waShare(msg, files){
-  const payload = { text: msg };
-  if (files && files.length && navigator.share) payload.files = files;
-  const ok = (typeof navigator.canShare === 'function') ? navigator.canShare(payload) : false;
-  if (ok) navigator.share(payload).catch(() => window.open('https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(msg), '_blank'));
-  else window.open('https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(msg), '_blank');
+function waShare(msg){
+  /* v5.43: فتح الواتساب على طول بالرسالة كاملة — navigator.share كان بيفتح قايمة مشاركة الموبايل وبتودي للميل */
+  window.open('https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(msg), '_blank');
 }
 let cstKey = 'desk';
 
