@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<!-- ===== Ray Home Accessories — v5.44 · صورة كونيو المنورة الجديدة بدقة أعلى (1824×2272) — نفس المسار والنسبة فبتشتغل في الجاليري والكويك فيو أوتوماتيك لما اللون أسود أو النور متولع ===== -->
+<!-- ===== Ray Home Accessories — v5.45 · إصلاح جليتش أول ضغطة في معرض راي — صور النور كانت بتظهر فجأة من غير transition لأنها لسه بتنزل، دلوقتي بتفيد ببطء بس لما بياناتها توصل فعلاً (lit-rdy) والتحميل متراقب في كل حتة في الصفحة ===== -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="assets/fonts.css">
 <title>Ray Home Accessories — 3D Printed Warmth for Every Home</title>
@@ -96,7 +96,7 @@ html.lights-on body::before{opacity:1}
 html.lights-on .card .thumb{box-shadow:0 8px 30px rgba(238,178,88,.38)}
 .card .thumb{transition:box-shadow 2s ease}
 .thumb img.lit-layer,.m-slide img.lit-layer,.c-img img.lit-layer,.a-img img.lit-layer,.m-th img.lit-layer,.mg-tile img.lit-layer{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.9s ease,transform 1.9s cubic-bezier(.22,.8,.3,1);pointer-events:none}
-html.lights-on img.lit-layer{opacity:1}
+html.lights-on img.lit-layer.lit-rdy{opacity:1}
 .m-th{position:relative}
 .m-th img.lit-layer{inset:2px;width:calc(100% - 4px);height:calc(100% - 4px);border-radius:8px}
 /* v5.27: طبقة النور في نافذة المنتج بنفس أبعاد الصورة الأساسية بالظبط — contain + نفس الفريم مش cover */
@@ -1761,6 +1761,10 @@ function renderMagicGallery(){
   new IntersectionObserver(es => { es.forEach(en => btn.classList.toggle('bounce', en.isIntersecting)); }, { threshold: .45 }).observe(trig);
 })();
 function mgOpen(id){ if(P(id).litColor) selColor[id] = P(id).litColor; quickOpen(id); }
+/* v5.45: صورة النور ماتقفزش فجأة — الـopacity كان بيتحرك والصورة لسه بتنزل، فلما البيانات توصل كانت بتظهر على طول من غير transition.
+   دلوقتي الطبقة بتفيد بس لما بياناتها تكون وصلت فعلًا (lit-rdy) — وساعتها بتنوّر ببطء */
+document.addEventListener('load', e => { const t = e.target; if(t && t.tagName === 'IMG' && t.classList.contains('lit-layer')) t.classList.add('lit-rdy'); }, true);
+function litSweep(){ document.querySelectorAll('img.lit-layer').forEach(im => { if(im.complete && im.naturalWidth) im.classList.add('lit-rdy'); }); }
 function renderAll(){
   renderMagicGallery();
   renderShop();
@@ -1768,6 +1772,7 @@ function renderAll(){
   renderSale();
   renderCart();
   renderShip();
+  litSweep();
 }
 
 /* ================== SALE SECTION (auto — every product with a sale price) ================== */
