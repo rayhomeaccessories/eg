@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<!-- ===== Ray Home Accessories — v5.45 · إصلاح جليتش أول ضغطة في معرض راي — صور النور كانت بتظهر فجأة من غير transition لأنها لسه بتنزل، دلوقتي بتفيد ببطء بس لما بياناتها توصل فعلاً (lit-rdy) والتحميل متراقب في كل حتة في الصفحة ===== -->
+<!-- ===== Ray Home Accessories — v5.48 · زرار تالت في الهيرو: «معرض راي السحري» بأيقونة عصاية سحر بشرارات بتلمع وتوهج دافي نابض · وأيقونات متحركة لزرارَي الأكثر مبيعًا (كأس بتلمع) والعروض (تاج بيتمرجح) ===== -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="assets/fonts.css">
 <title>Ray Home Accessories — 3D Printed Warmth for Every Home</title>
@@ -178,6 +178,23 @@ html.lights-on img.lit-layer.lit-rdy{opacity:1}
 .btn.ghost:hover{background:var(--ink);color:var(--cream)}
 .btn.sale{background:var(--terra);color:#fff}
 .btn.sale:hover{background:#a54a28}
+/* v5.48: أيقونات متحركة لأزرار الهيرو — كأس بتلمع، تاج بيتمرجح، وعصاية سحر بشرارات */
+.hero-cta .ic{width:17px;height:17px;flex:none}
+.hero-cta .btn{white-space:nowrap}
+@keyframes starTw{0%,100%{opacity:.25;transform:scale(.55)}50%{opacity:1;transform:scale(1.1)}}
+.hero-cta .tw{transform-box:fill-box;transform-origin:center;animation:starTw 2.4s ease-in-out infinite}
+@keyframes tagSwing{0%,100%{transform:rotate(0)}30%{transform:rotate(-11deg)}65%{transform:rotate(7deg)}}
+.hero-cta .tag{transform-box:fill-box;transform-origin:30% 30%;animation:tagSwing 3s ease-in-out infinite}
+@keyframes spTwinkle{0%,100%{opacity:.2;transform:scale(.5) rotate(0)}50%{opacity:1;transform:scale(1.2) rotate(20deg)}}
+.hero-cta .sp{transform-box:fill-box;transform-origin:center;animation:spTwinkle 1.7s ease-in-out infinite}
+.hero-cta .s2{animation-delay:.5s}
+.hero-cta .s3{animation-delay:1s}
+@keyframes wandWiggle{0%,100%{transform:rotate(0)}40%{transform:rotate(-10deg)}75%{transform:rotate(8deg)}}
+.hero-cta .wand{transform-box:fill-box;transform-origin:0% 100%;animation:wandWiggle 3.4s ease-in-out infinite}
+.btn.magic{background:linear-gradient(135deg,#fff8ec,#f5e6c4);color:var(--ink);border-color:#dda64a;animation:magicGlow 2.6s ease-in-out infinite}
+.btn.magic:hover{background:linear-gradient(135deg,#fffdf4,#faeecf);color:var(--ink)}
+@keyframes magicGlow{0%,100%{box-shadow:0 0 12px rgba(226,169,63,.28)}50%{box-shadow:0 0 24px rgba(226,169,63,.55)}}
+@media (prefers-reduced-motion:reduce){.hero-cta .tw,.hero-cta .tag,.hero-cta .sp,.hero-cta .wand,.btn.magic{animation:none}}
 /* ---------- in-page policy page ---------- */
 .page-overlay{position:fixed;inset:0;z-index:150;background:var(--cream);display:none;overflow-y:auto}
 .page-overlay.show{display:block}
@@ -338,12 +355,6 @@ html.lights-on img.lit-layer.lit-rdy{opacity:1}
 
 /* ---------- story / features ---------- */
 .features{background:var(--cream-2);padding:88px 0}
-.about-lead{display:grid;grid-template-columns:auto 1fr;gap:36px;align-items:start;max-width:900px;margin:0 auto 60px}
-@media (max-width:640px){.about-lead{grid-template-columns:1fr;text-align:center;justify-items:center}}
-.story-emblem{width:130px;height:130px;border-radius:50%}
-.about-lead .over{font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:var(--terra);font-weight:700;margin-bottom:12px}
-.about-lead h2{font-family:var(--serif);font-size:clamp(1.9rem,3.2vw,2.6rem);font-weight:600;margin-bottom:8px}
-.s-p{color:var(--ink-soft);font-size:.92rem;margin-top:14px}
 .f-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;max-width:1000px;margin:0 auto}
 @media (max-width:900px){.f-grid{grid-template-columns:1fr}}
 .f-card{background:var(--paper);border:1px solid var(--line);border-radius:var(--r-lg);padding:34px 28px;text-align:center;display:flex;flex-direction:column;align-items:center;transition:transform .3s,box-shadow .3s,border-color .3s}
@@ -800,9 +811,9 @@ if (typeof IntersectionObserver === 'undefined') {
       <h1 id="heroTitle" data-i18n-html="heroTitle"></h1>
       <p id="heroSub" data-i18n="heroSub"></p>
       <div class="hero-cta">
-        <a class="btn" href="#newly" data-i18n="heroCta1"></a>
-        <a class="btn ghost" href="#about" data-i18n="heroCta2"></a>
-        <a class="btn sale" href="#sale" data-i18n="heroCta3"></a>
+        <a class="btn" href="#newly"><span data-i18n="heroCta1"></span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 21h8"/><path d="M12 14v7"/><path d="M7 4h10v5a5 5 0 0 1-10 0V4z"/><path d="M7 6H4c0 2.5 1.3 3.9 3.6 4.3"/><path d="M17 6h3c0 2.5-1.3 3.9-3.6 4.3"/><path class="tw" d="M18.6 2.2l.5 1.3 1.3.5-1.3.5-.5 1.3-.5-1.3-1.3-.5 1.3-.5z" fill="currentColor" stroke="none"/></svg></a>
+        <a class="btn sale" href="#sale"><span data-i18n="heroCta3"></span><svg class="ic ic-tag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path class="tag" d="M12.6 2.6A2 2 0 0 0 11.2 2H4a2 2 0 0 0-2 2v7.2a2 2 0 0 0 .6 1.4l8.7 8.7a2.4 2.4 0 0 0 3.4 0l6.6-6.6a2.4 2.4 0 0 0 0-3.4l-8.7-8.7z"/><circle class="hole" cx="7.5" cy="7.5" r="1"/></svg></a>
+        <a class="btn magic" href="#magic"><span data-i18n="heroCta4"></span><svg class="ic ic-magic" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path class="wand" d="M4.5 19.5 14.5 9.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path class="sp s1" d="M15 2.5l.8 1.9 1.9.8-1.9.8-.8 1.9-.8-1.9-1.9-.8 1.9-.8z" fill="#e2a93f"/><path class="sp s2" d="M20 11.5l.6 1.4 1.4.6-1.4.6-.6 1.4-.6-1.4-1.4-.6 1.4-.6z" fill="#e2a93f"/><path class="sp s3" d="M9.5 4l.5 1.1 1.1.5-1.1.5-.5 1.1-.5-1.1L7.9 5.6l1.1-.5z" fill="#e2a93f"/></svg></a>
       </div>
     </div>
   </div>
@@ -937,16 +948,6 @@ if (typeof IntersectionObserver === 'undefined') {
 <!-- About / Story -->
 <section class="features" id="about">
   <div class="container">
-    <div class="about-lead reveal">
-      <img class="story-emblem" src="assets/logo.png" alt="Ray Home Accessories">
-      <div>
-        <div class="over" data-i18n="storyOver"></div>
-        <h2 data-i18n="storyTitle"></h2>
-        <p class="s-p" data-i18n="storyP1"></p>
-        <p class="s-p" data-i18n="storyP2"></p>
-        <p class="s-p" data-i18n="storyP3"></p>
-      </div>
-    </div>
     <div class="f-grid">
       <div class="f-card reveal">
         <div class="f-ico"><svg viewBox="0 0 24 24"><path d="m12 2 9 5-9 5-9-5 9-5Z"/><path d="m3 12 9 5 9-5"/><path d="m3 17 9 5 9-5"/></svg></div>
@@ -1222,7 +1223,7 @@ const I18N = {
     catsOver:'Everything in one place',catsH:'All Categories',cgGo:'Go to',
     heroTitle: 'Warmth for your home, <em>printed layer by layer</em>',
     heroSub: 'Table lamps, pendant lamps, vases and planter pots — designed by us, printed to order in 15 colors and finished by hand. Pick your color and we will make yours.',
-    heroCta1:'Shop Best Sellers', heroCta2:'Our Story', heroCta3:'Shop Sale',
+    heroCta1:'Shop Best Sellers', heroCta3:'Shop Sale', heroCta4:"Ray's Magic Gallery",
     bColl:'Collection', bDeskSub:'The Ray Table', bDesk:'Table Lamp', bHangSub:'Light From Above', bHang:'Pendent Lamp',
     bVases:'Vases', bPlantSub:'Green Corners', bPlant:'Planter Pots',
     explore:'Explore Now', orderNow:'Order Now',
@@ -1304,10 +1305,6 @@ const I18N = {
     aReasonColor:'matches your colors',
     aReasonBudget:'fits your budget',
     aReasonClose:'closest match to your taste',
-    storyOver:'Our Story', storyTitle:'Made slowly, for the rooms you actually live in.',
-    storyP1:"Ray is a small workshop with one simple rule: if we would not put it in our own homes, we do not ship it. Every lamp, vase and planter starts as a sketch, becomes a 3D print layer by layer, and passes through our own hands — sanded, checked and sealed — before it becomes yours.",
-    storyP2:"We do not mass produce. Your piece is printed only after you choose it, in one of fifteen colors picked to sit quietly in real homes — bone whites and warm sands, not catalog gloss. That is exactly why it can end up being exactly what you wanted.",
-    storyP3:'One workshop. One printer humming late into the night. One piece at a time. Welcome to Ray.',
     f1t:'Printed in Small Batches', f1p:'We do not keep stock — every piece is printed only after you order it, then sanded, checked and sealed by hand in our studio before it is packed and shipped.',
     f2t:'Free Shipping, All of Egypt', f2p:'Every order ships free anywhere in Egypt, carefully wrapped in recycled paper and ready to gift.',
     f3t:'7-Day Returns Window', f3p:'Damaged or wrong item? Let us know within 7 days of delivery — we will replace it or refund it. We are always one WhatsApp message away.', f3link:'Read the full policy →',
@@ -1359,7 +1356,7 @@ const I18N = {
     catsOver:'تسوّق حسب القسم',catsH:'الأقسام',cgGo:'اذهب إلى',
     heroTitle: 'دفء لمنزلك، <em>مطبوع طبقة فوق طبقة</em>',
     heroSub: 'لمبات مكتب ومعلقات ومزهريات وأصص — كلها بتصميمنا، بنطبعها لما تطلب بأي لون من 15 لون وبنشطّبها بإيدينا. اختار لونك واحنا نصنعها لك.',
-    heroCta1:'تسوّق الأكثر مبيعًا', heroCta2:'قصتنا', heroCta3:'العروض',
+    heroCta1:'تسوّق الأكثر مبيعًا', heroCta3:'العروض', heroCta4:'معرض راي السحري',
     bColl:'تشكيلة', bDeskSub:'ركن العمل', bDesk:'لمبات المكتب', bHangSub:'ضوء من الأعلى', bHang:'لمبات معلقة',
     bVases:'فازات', bPlantSub:'ركن أخضر', bPlant:'أواني الزرع',
     explore:'اكتشف الآن', orderNow:'اطلب الآن',
@@ -1441,10 +1438,6 @@ const I18N = {
     aReasonColor:'من ألوان اللي اخترتها',
     aReasonBudget:'في ميزانيتك',
     aReasonClose:'أقرب حاجة لذوقك',
-    storyOver:'قصتنا', storyTitle:'بنصنعها على مهل، للأوض اللي بتعيش فيها فعلًا.',
-    storyP1:'Ray ورشة صغيرة بقاعدة واحدة: لو مش هنحطها في بيوتنا، مش هنشحنها. كل لمبة وفازة وأصيص بتبدأ برسمة، وتتحول لطباعة ثلاثية الأبعاد طبقة ورا طبقة، وبتعدّي على إيدينا — صقلًا وفحصًا وتغليفًا — قبل ما تبقى بتاعتك.',
-    storyP2:'ما بننتجش بالجملة. قطعتك بتتطبع بعد ما تختارها بواحد من 15 لون اختارناهم عشان يقعدوا بهدوء في البيوت الحقيقية — أبيض عاجي ورمال دافئة، مش لمعة كتالوجات. وعشان كده بتطلع بالظبط اللي في دماغك.',
-    storyP3:'ورشة واحدة، وطابعة بتكمل شغلها بالليل، وقطعة واحدة في كل مرة. أهلًا بيك في Ray.',
     f1t:'طباعة بدفعات صغيرة', f1p:'ما بنخزّنش — بنطبع كل قطعة بعد ما تطلبها على طول، وبعدين بنصقلها ونفحصها ونغلفها بإيدينا في الستوديو قبل ما نبعتهالك.',
     f2t:'شحن مجاني لكل مصر', f2p:'أي طلب بيوصلك مجان لأي مكان في مصر، متغلف بعناية بورق معاد تدويره وجاهز تديه هدية.',
     f3t:'استرجاع خلال 7 أيام', f3p:'القطعة وصلت مكسورة أو مش اللي طلبتها؟ كلمنا خلال 7 أيام من الاستلام وهنبدلهالك أو نرجّعلك فلوسك — وإحنا دايمًا على بُعد رسالة واتساب واحدة.', f3link:'شوف السياسة كاملة ←',
@@ -1594,7 +1587,7 @@ const SECTIONS = {
   vases: ["flower-vase-013","flower-vase-016"],
   planters: ["planter-pot-005","planter-pot-014"]
 };
-const BEST = ["twisted-pendant","chain-pendant-03","konio-lamp","table-lamp-025","pendant-lamp-007","flower-vase-013","pendant-lamp-008","flower-vase-016","planter-pot-005","planter-pot-014"];
+const BEST = ["table-lamp-025","twisted-pendant","flower-vase-016"];
 /* ---------- catalog generator (اتولد من CATALOG + IMG — مش محتاجة تعديل) ---------- */
 const PRODUCTS = (() => { const o = {}; for (const id in CATALOG) o[id] = Object.assign({ id: id, img: IMG[id].main, imgs: IMG[id].gallery }, CATALOG[id]); return o; })();const CST_IMGS = {
   desk:'assets/cst-desk.jpg',
@@ -1685,7 +1678,7 @@ function cardHtml(id, animate){
     <div class="thumb">
       ${badge}
       <img data-pid="${id}" src="${pMain(id)}" alt="${p.name[lang]}" loading="lazy" onerror="imgFall(this)" onclick="quickOpen('${id}')">
-      ${hasLit(id) ? `<img class="lit-layer" src="${p.lit}" alt="" loading="lazy" onerror="this.style.display='none'">` : ''}
+      ${p.lit ? `<img class="lit-layer" src="${p.lit}" alt="" loading="lazy" onerror="this.style.display='none'">` : ''}
       <button class="quickview" onclick="quickOpen('${id}')">${T().quickView}</button>
     </div>
     <h4 dir="ltr">${p.name[lang]}</h4>
@@ -1721,7 +1714,7 @@ function renderNew(){
   const g = $('#newGrid');
   const slice = BEST.slice(0, newShown);
   g.innerHTML = slice.map((id,i)=>cardHtml(id, newFirst || i>=newPrev).replace('class="card reveal"',`class="card reveal" style="--d:${(i%4)*.07}s"`)).join('');
-  $('#newFoot').textContent = T().viewed(slice.length, BEST.length);
+  $('#newFoot').textContent = (newShown < BEST.length) ? T().viewed(slice.length, BEST.length) : '';
   $('#loadMore').style.display = (BEST.length > 4 && newShown < BEST.length) ? 'inline-flex' : 'none';
   revealObserve(g);
   newFirst = false;
@@ -1793,6 +1786,7 @@ const POLICY = {
     lead: 'At Ray Home Accessories, every piece is made to order with care. Because our products are 3D-printed — and some are personalized — we keep this policy simple and clear.',
     sec: [
       { h: 'Returns', b: [
+        { p: 'At Ray, what matters most is that you love your piece and that it adds a beautiful touch to your home — this policy exists to make sure of that.' },
         { p: 'We only accept returns in the following cases:' },
         { ul: ['You received the wrong item', 'Your item arrived damaged'] },
         { p: 'We do not accept returns for:' },
@@ -1810,7 +1804,7 @@ const POLICY = {
       ]},
       { h: 'Return Shipping', b: [
         { p: 'If a return is approved:' },
-        { ul: ['The customer is responsible for return shipping costs', 'The item should be returned in its original condition and packaging, as much as possible'] },
+        { ul: ['The item should be returned in its original condition and packaging, as much as possible'] },
         { p: 'We recommend a tracked shipping method — we are not responsible for returned packages lost in transit.' }
       ]},
       { h: 'Replacements', b: [
@@ -1836,6 +1830,7 @@ const POLICY = {
     lead: 'في Ray Home Accessories كل قطعة تُصنع بالطلب وبالعناية. ولأن منتجاتنا مطبوعة بتقنية الطباعة ثلاثية الأبعاد — وبعضها مصمم حسب طلبك — أبقينا هذه السياسة بسيطة وواضحة.',
     sec: [
       { h: 'الاسترجاع', b: [
+        { p: 'في راي، أهم شيء عندنا أن يعجبك المنتج وأن يضيف لمسة جميلة إلى بيتك — وهذه السياسة موجودة لضمان ذلك.' },
         { p: 'نقبل الاسترجاع فقط في الحالتين التاليتين:' },
         { ul: ['وصلك منتج مختلف عن طلبك', 'وصلك المنتج تالفًا'] },
         { p: 'لا نقبل الاسترجاع في الحالات الآتية:' },
@@ -1853,7 +1848,7 @@ const POLICY = {
       ]},
       { h: 'شحن الإرجاع', b: [
         { p: 'في حال الموافقة على الاسترجاع:' },
-        { ul: ['العميل يتحمل تكلفة شحن الإرجاع', 'يُعاد المنتج بحالته وتغليفه الأصلي قدر الإمكان'] },
+        { ul: ['يُعاد المنتج بحالته وتغليفه الأصلي قدر الإمكان'] },
         { p: 'ننصح باستخدام طريقة شحن بتتبع، إذ لا نتحمل مسؤولية الطرود المرتجعة المفقودة أثناء النقل.' }
       ]},
       { h: 'الاستبدال', b: [
