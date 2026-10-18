@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<!-- ===== Ray Home Accessories — v5.63 · صور الشخصيات نضيفة 100% (الشخصية بس — صفر عناصر زائدة/صفر أبيض + جودة أعلى بدقة مضاعفة وحواف ناعمة) · صور النور on/off رجعت smooth: كل صورة نور متصنّعة من نفس صورتها الأساسية بالظبط (تعتيم دافي + توهج) فمفيش أي تغيير أبعاد أو قفزة عند التبديل ===== -->
+<!-- ===== Ray Home Accessories — v5.65 · صور on/off كلها (8) متصنّعة من نفس صور المنتج بالظبط بتأثير خفيف: اللمبة بتولّع في نفس الأوضة — مفيش تحويل للمشهد الليلي ولا تعتيم ولا كرة توهج كبيرة ولا أي إحساس بالتكبير · اتشال تعتيم الصورة الأساسية والتوهج حوالين الكروت · مسحنا أصول مش محتاجين ===== -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="assets/fonts.css">
 <title>Ray Home Accessories — 3D Printed Warmth for Every Home</title>
@@ -93,7 +93,6 @@ nav a:hover::after{width:100%}
 .light-toggle{transition:color .3s,background .3s,box-shadow .3s,border-color .3s}
 body::before{content:"";position:fixed;inset:0;background:radial-gradient(1250px 560px at 50% -120px,rgba(66,46,28,.30),rgba(26,18,12,.38) 78%);opacity:0;transition:opacity 2.2s ease;pointer-events:none;z-index:-1}
 html.lights-on body::before{opacity:1}
-html.lights-on .card .thumb{box-shadow:0 8px 30px rgba(238,178,88,.38)}
 .card .thumb{transition:box-shadow 2s ease}
 .thumb img.lit-layer,.m-slide img.lit-layer,.c-img img.lit-layer,.a-img img.lit-layer,.m-th img.lit-layer,.mg-tile img.lit-layer{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.9s ease,transform 1.9s cubic-bezier(.22,.8,.3,1);pointer-events:none}
 html.lights-on img.lit-layer.lit-rdy{opacity:1}
@@ -219,10 +218,7 @@ html.lights-on img.lit-layer.lit-rdy{opacity:1}
 #mPick{display:flex;gap:8px}
 #mPick .c-b{width:24px;height:24px}
 /* v5.52: تأثير الإضاءة المنخفضة المحلي — زي زرار المعرض بالظبط: الخلفية بتتقتم واللمبة بتنوّر */
-.thumb.lit-on{background:#17120d;box-shadow:0 12px 34px rgba(238,178,88,.45)}
 .m-slide.lit-on{background:transparent}
-.m-slide.lit-on img:not(.lit-layer){background:#17120d}
-.lit-on.has-lit-photo img:not(.lit-layer){filter:brightness(.38) saturate(.82)}
 .mini-lit:disabled{opacity:.35;cursor:not-allowed;filter:grayscale(.45)}
 .mini-lit:disabled:hover{transform:none}
 /* v5.50: زرار النور الفردي على كل صورة فيها لمبة */
@@ -309,7 +305,7 @@ html.lights-on .lit-off img.lit-layer{opacity:0!important}
 .thumb{position:relative;aspect-ratio:1/1;overflow:hidden;background:var(--cream-2)}
 .thumb img{width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.22,.8,.3,1),filter 1.9s ease,opacity .1s ease}
 .thumb.swapping img:not(.lit-layer){opacity:0}
-.card:hover .thumb img{transform:scale(1.055)}
+/* v5.64: شيلنا زووم الصور عند الـhover — الصورة بتتغير (نور/ألوان) من غير أي تكبير، والكارت بيرفع نفسه بس */
 .badge{position:absolute;top:10px;inset-inline-start:10px;z-index:2;background:var(--ink);color:var(--cream);font-size:.52rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;padding:4px 9px;border-radius:16px;box-shadow:var(--shadow-sm)}
 .badge.new{background:var(--olive)}
 .badge.set{background:var(--terra)}
@@ -2742,5 +2738,5 @@ revealObserve(document);
   </div>
 </div>
 
-<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a4c912a32df4ac32',t:'MTc5MjM0MjU0OA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</body>
 </html>
