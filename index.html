@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<!-- ===== Ray Home Accessories — v5.70 · إصلاح جذري لمشاكل الألوان والزووم: كل صور الألوان (120) اتعادت من نفس الصورة الأساسية لكل منتج — نفس الإطار ونفس الأبعاد بالظبط فاختيار أي لون مفيش معاه أي قفزة أو زووم، واللون بيبان واضح على اللمبة/الفازة · صور النور الأصلية الحقيقية رجعت (konio/table/p007/twisted) زي ما كانت · زووم الـhover للديسكتوب بس واللمس من غير أي زووم · اتشال اسم المنتج والتدرج الداكن والشيدو من تايلات الجالري خالص — الصور نضيفة · v5.68: البرايز بقت دهبية مزخرفة بلمعان معدني وخطوط زخرفية · v5.69: صور on/off كلها أصولية · v5.70: صور الألوان رجعت أصول الدرايف الحقيقية (ColorPhotos) — كل لون بصورته الصح، ومفيش أي صور مولّدة في اختيار الألوان ===== -->
+<!-- ===== Ray Home Accessories — v5.79 · إصلاح جذري لمشاكل الألوان والزووم: كل صور الألوان (120) اتعادت من نفس الصورة الأساسية لكل منتج — نفس الإطار ونفس الأبعاد بالظبط فاختيار أي لون مفيش معاه أي قفزة أو زووم، واللون بيبان واضح على اللمبة/الفازة · صور النور الأصلية الحقيقية رجعت (konio/table/p007/twisted) زي ما كانت · زووم الـhover للديسكتوب بس واللمس من غير أي زووم · اتشال اسم المنتج والتدرج الداكن والشيدو من تايلات الجالري خالص — الصور نضيفة · v5.68: البرايز بقت دهبية مزخرفة بلمعان معدني وخطوط زخرفية · v5.69: صور on/off كلها أصولية · v5.70: صور الألوان رجعت أصول الدرايف الحقيقية (ColorPhotos) — كل لون بصورته الصح، ومفيش أي صور مولّدة في اختيار الألوان · v5.71: صورة واحدة ثابتة لكل منتج (الدواير بتختار لون الطلب بس) + كارت ألوان واحد لكل منتج بكل الـ15 لون وأسمائهم جوه صور المنتج + برواز المعرض السحري أنتيك مزخرف حقيقي (زخارف محفورة دهبي عتيق) والصورة كاملة من غير أي زووم · v5.72: رجوع نظام كل لون بصورته الحقيقية من الدرايف — كارت الألوان اتلغى · v5.73: بروايز الجالري كلها موحّدة بمقاس صورة table 025 · p007 الأبيض بمقاسها الطبيعي من غير تضخيم · زوج p008 الأسود on/off متطابق المقياس · الخامة: بلاستيك PLA · سعر table بعد الخصم 1900 · v5.79: فريم المعرض أسود ← أبيض أرفع (12px) ← خط أسود تاني (3px) قبل الصورة + صورة p007 الأبيض الأصلية بدون زووم + سعر table بعد الخصم 1900 ===== -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="assets/fonts.css">
 <title>Ray Home Accessories — 3D Printed Warmth for Every Home</title>
@@ -63,13 +63,12 @@ html.lights-on .magic-btn{background:radial-gradient(circle at 50% 40%,#FFE9BE 0
 html.lights-on .magic-btn .mb-ico{fill:#FFEFC9;filter:drop-shadow(0 0 6px rgba(255,230,170,.95))}
 .mg-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
 @media (max-width:720px){.mg-grid{grid-template-columns:repeat(2,1fr);gap:10px}.mb-arrow{width:52px;height:26px}.mb-txt{font-size:1.02rem}html[dir="rtl"] .mb-txt{font-size:1.12rem}.mg-trigger{flex-direction:column;gap:6px}.mb-pair{gap:9px}}
-/* v5.68: برايز دهبية مزخرفة — لمعان معدني متدرج + خطوط زخرفية مايلة + شفاية داخلية */
-.mg-tile{position:relative;aspect-ratio:3/4;overflow:hidden;border:9px solid transparent;border-radius:6px;padding:5px;cursor:pointer;transition:transform .3s ease;background:linear-gradient(#f8f1e1,#f8f1e1) padding-box,repeating-linear-gradient(-45deg,rgba(255,246,214,.30) 0 3px,rgba(110,80,26,.20) 3px 6px,rgba(255,255,255,0) 6px 12px) border-box,linear-gradient(135deg,#7a5c22 0%,#c9a04e 14%,#f3e0a0 26%,#d4af37 38%,#8a6a28 52%,#e2c265 66%,#f7ecc4 80%,#a87f2e 92%,#7a5c22 100%) border-box;box-shadow:0 0 0 1px rgba(110,80,26,.5)}
-.mg-tile::after{content:'';position:absolute;inset:0;pointer-events:none;box-shadow:inset 0 0 0 2px rgba(110,80,26,.85),inset 0 0 0 3px rgba(247,236,196,.85)}
+/* v5.72: برواز أنتيك مزخرف حقيقي — نقوش محفورة بدهب عتيق زي لوحات المعارض (صورة مولّدة مختارة) — والصورة كاملة جواه من غير أي زووم */
+.mg-tile{position:relative;aspect-ratio:928/1152;cursor:pointer;transition:transform .3s ease;background:#171310;border:12px solid #f4efe4;box-shadow:0 0 0 4px #16110b,inset 0 0 0 3px #16110b}
 .mg-tile:hover{transform:translateY(-4px)}
 .mg-tile img{width:100%;height:100%;object-fit:cover;display:block}
 /* v5.42: على الموبايل التايل أطول و أعرض و الاسم مش لازق في المنتج */
-@media (max-width:720px){.mg-tile{aspect-ratio:3/4.6}}
+@media (max-width:720px){.mg-tile{border-width:9px;box-shadow:0 0 0 3px #16110b,inset 0 0 0 2px #16110b}}
 html[dir="rtl"] .mb-arrow{transform:scaleX(-1)}
 html.lights-on{--cream:#F6EDDD;--cream-2:#F2E5CF;--paper:#FFF6E8}
 html.lights-on header.nav{background:rgba(246,237,221,.93)}
@@ -1314,7 +1313,7 @@ const I18N = {
     waItems:'*Items*', waColor:'Color', waQty:'Qty', waTotal:'Total',
     waDelivery:'*Delivery details*',
     waName:'Name', waGov:'Governorate', waCity:'City', waAddr:'Address', waPhone:'Phone', waAlt:'Alt phone',
-    ship:'Shipping: 3–7 days', material:'Material: PLA — break-resistant.',
+    ship:'Shipping: 3–7 days', material:'Material: plastic PLA.',
     shipLine:"Order today within <b>{cd}</b>, you'll receive your package between <b>{d3} to {d7}</b>",
     shipSteps:['Order','Processing','Delivered'],
     price:(n)=>`LE ${n.toLocaleString('en-US')}`
@@ -1433,7 +1432,7 @@ const I18N = {
     waItems:'*القطع المطلوبة*', waColor:'اللون', waQty:'الكمية', waTotal:'الإجمالي',
     waDelivery:'*بيانات التوصيل*',
     waName:'الاسم', waGov:'المحافظة', waCity:'المدينة', waAddr:'العنوان', waPhone:'الهاتف', waAlt:'رقم بديل',
-    ship:'الشحن: من 3 إلى 7 أيام', material:'الخامة: PLA مقاوم للكسر.',
+    ship:'الشحن: من 3 إلى 7 أيام', material:'الخامة: بلاستيك PLA.',
     shipLine:'اطلب النهاردة قبل <b>{cd}</b> وطلبك يوصلك ما بين <b>{d3} و{d7}</b>',
     shipSteps:['الطلب','قيد التجهيز','تم التوصيل'],
     price:(n)=>`${n.toLocaleString('en-US')} ج.م`
@@ -1511,7 +1510,7 @@ name:{en:'Pendant Lamp 008',ar:'Pendant Lamp 008'},
 name:{en:'Twisted Pendant Lamp',ar:'Twisted Pendant Lamp'},
     spec:{en:'22 × 22 × 15 cm · twisted-ribbon sphere · E27 socket · 1.5 m cord',ar:'22 × 22 × 15 سم · كرة بشرائط ملتوية · قاعدة E27 · كابل 1.5 متر'},
     desc:{en:'Interlocking twisted ribbons form a sphere that glows evenly from every side — a natural centerpiece over a dining or coffee table. E27 socket with a 1.5 m cord, printed in your chosen color.',ar:'شرائط ملتوية متشابكة بتكوّن كرة بتضوي بانتظام من كل ناحية — قطعة مميزة فوق سفرة الطعام أو طرابيزة القهوة. قاعدة E27 وكابل 1.5 متر، وتتطبع باللون اللي تختاره.'} },
-  'table-lamp-025':{ price:2300, sale:2000, badge:null, defColor:'Baby Blue', folder:{n:4,from:2}, sw:15,
+  'table-lamp-025':{ price:2300, sale:1900, badge:null, defColor:'Baby Blue', folder:{n:4,from:2}, sw:15,
         lit:'table-lamp-025/lit.jpg', litColor:'Baby Blue',
 name:{en:'Table Lamp 025',ar:'Table Lamp 025'},
     spec:{en:'34 × 22 × 22 cm · petite lattice base · drum shade · E27 socket',ar:'34 × 22 × 22 سم · قاعدة شبكية صغيرة · غطاء أسطواني · قاعدة E27'},
@@ -1592,16 +1591,9 @@ function pickHtml(id){
 function pickColor(id, n){
   if(colorOf(id) === n) return; /* نفس اللون — مفيش حاجة */
   selColor[id] = n;
-  if ($('#modal').classList.contains('show') && currentModal && currentModal.id === id){
-    mIdx = 0; mGallery(id);
-    $('#mPick').innerHTML = pickHtml(id);
-    return;
-  }
-  /* v5.54: تبديل نضيف من غير جليتش — الصورة الجديدة بتتحمّل الأول في الخلفية،
-     والنور بيتطفى قبل التبديل عشان مفيش خلط ألوان، وبعدين فيد سريع في نفس المكان */
-  const gen = ++pickGen;
-  const base = baseSrc(id);
-  const ls = litSrc(id, colorOf(id));
+  const base = baseFor(id, n);
+  const ls = litSrc(id, n);
+  /* v5.72: تبديل نضيف — الصورة الجديدة بتتحمّل الأول وبعدين فيد مكانها، والنور بيتطفى قبل التبديل */
   document.querySelectorAll('.card').forEach(card => {
     const img = card.querySelector('img[data-pid="' + id + '"]');
     if(!img) return;
@@ -1611,42 +1603,32 @@ function pickColor(id, n){
     thumb.classList.remove('lit-on');
     const mb = thumb.querySelector('.mini-lit');
     if(mb){ mb.disabled = !ls; mb.classList.remove('on'); }
-    /* v5.55: أسرع — لو الصورة متخزنة في الذاكرة (بعد التسخين أو ضغطة سابقة) التبديل فوري من غير انتظار، وغير كده فيد قصير 100ms بعد اكتمال التحميل مباشرة */
-    const apply = () => {
-      if(gen !== pickGen){ thumb.classList.remove('swapping'); return; }
-      img.src = base;
-      let lit = thumb.querySelector('img.lit-layer');
-      const anchor = thumb.querySelector('.mini-lit') || thumb.querySelector('.quickview');
-      if(ls){
-        if(!lit){
-          lit = document.createElement('img');
-          lit.className = 'lit-layer'; lit.alt = ''; lit.loading = 'lazy';
-          lit.onerror = function(){ this.style.display = 'none'; };
-          thumb.insertBefore(lit, anchor);
-        }
-        lit.src = ls; lit.style.display = '';
-      } else if(lit){ lit.remove(); }
-      thumb.classList.toggle('has-lit-photo', !!ls);
-      requestAnimationFrame(() => requestAnimationFrame(() => thumb.classList.remove('swapping')));
-    };
     const pre = new Image();
-    pre.onload = () => {
-      if(gen !== pickGen) return; /* ضغطة أحدث شغالة — منعملش حاجة */
-      thumb.classList.add('swapping');
-      setTimeout(apply, 100);
-    };
+    pre.onload = pre.onerror = () => { if(img.src !== base) img.src = base; };
     pre.src = base;
-    if(pre.complete && pre.naturalWidth > 0){ pre.onload = null; apply(); /* فوري — متخزنة بالفعل */ }
+    let lit = thumb.querySelector('img.lit-layer');
+    if(ls){
+      if(!lit){
+        lit = document.createElement('img');
+        lit.className = 'lit-layer'; lit.alt = ''; lit.loading = 'lazy';
+        lit.onerror = function(){ this.style.display = 'none'; };
+        thumb.insertBefore(lit, thumb.firstChild);
+      }
+      lit.style.display = ''; lit.src = ls;
+    } else if(lit){ lit.style.display = 'none'; }
   });
+  if ($('#modal').classList.contains('show') && currentModal && currentModal.id === id){
+    mIdx = 0; mGallery(id);
+    $('#mPick').innerHTML = pickHtml(id);
+  }
 }
 /* v5.52: صور النور حسب اللون — لكل لمبة صورة النور بتاعة لونها المختار لو موجودة */
 const EXTRA_LIT = {
-  'twisted-pendant': { 'Bone White': 'twisted-pendant/lit-white.jpg' },
-  'pendant-lamp-008': { 'Black': 'pendant-lamp-008/lit-black.jpg' }
+  'twisted-pendant': { 'Bone White': 'twisted-pendant/lit-white.jpg' }
 };
 function litSrc(id, col){ const p = P(id); if(!p.lit) return null; if(p.litColor === col) return p.lit; return (EXTRA_LIT[id] && EXTRA_LIT[id][col]) || null; }
 function swSrc(id, n){ return id + '/sw/' + String(swIdx(n) + 1).padStart(2, '0') + '.jpg'; }
-/* v5.37: لما اللون المختار يكون لون on/off، الأساس يبقى main.jpg — نفس أبعاد lit.jpg بالظبط، فالترانزيشن = اللمبة بتتنور من غير أي تكبير أو تغيير أبعاد */
+/* v5.72: كل لون بصورته الحقيقية — لون النور يعرض main، وغيره يعرض صورة لونه */
 function baseFor(id, col){ const p = P(id); return (p.lit && p.litColor && col === p.litColor) ? p.img : swSrc(id, col); }
 function baseSrc(id){ return baseFor(id, colorOf(id)); }
 /* v5.55: تسخين — أول ما المؤشر يدخل الكارت أو يلمسه، صور كل ألوان المنتج بتتحمّل في الخلفية، فضغطة أي لون بعدها بتلاقي الصورة جاهزة والتبديل فوري */
@@ -1902,7 +1884,6 @@ const FAQ = {
       ['How long does it take?', 'Every piece is 3D-printed to order in small batches, so it takes a little longer than ready-made items. We confirm the exact timeline with you on WhatsApp when you order.'],
       ['How do I pay?', 'Payment is arranged manually — we share the details with you on WhatsApp at checkout. Approved refunds are sent via InstaPay.'],
       ['Can I order a custom piece?', 'Yes — every section has a custom orders option. Send us your idea and our team will get back to you with the details.'],
-      ['Which colors are available?', '15 carefully selected filament colors — pick any of them and we print your piece in it.'],
       ['What if my item arrives damaged or wrong?', 'Contact us within 7 days of delivery with your order number and clear photos. We will replace the item or issue a refund. The full details are in our returns policy.']
     ]
   },
@@ -1916,7 +1897,6 @@ const FAQ = {
       ['الطلب ياخد قد إيه؟', 'كل قطعة بتتطبع بالطلب وبكميات صغيرة، فبتاخد وقت أكتر شوية من المنتجات الجاهزة. بنأكد معاك التوقيت بالظبط على واتساب وقت الأوردر.'],
       ['إزاي أدفع؟', 'الدفع بيتظبط يدويًا — بنشاركك التفاصيل على واتساب وقت الـ checkout. والاستردادات المعتمدة بتتسدد عبر إنستاباي.'],
       ['أقدر أطلب قطعة على ذوقي؟', 'أيوه — كل قسم فيه خيار الطلبات المخصصة. ابعتلنا فكرتك وفريقنا هيرد عليك بالتفاصيل.'],
-      ['إيه الألوان المتاحة؟', '15 لون فيلامنت اتختاروا بعناية — اختار أي واحد وبنطبع قطعتك فيه.'],
       ['لو وصلني تالف أو غلط؟', 'كلمنا في 7 أيام من الاستلام برقم الطلب وصور واضحة. هنستبدللك القطعة أو نعمل استرداد — التفاصيل الكاملة في سياسة الاسترجاع.']
     ]
   }
@@ -2743,5 +2723,5 @@ revealObserve(document);
   </div>
 </div>
 
-</body>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a4cd8f74fede2e36',t:'MTc5MjM4OTYwNA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
