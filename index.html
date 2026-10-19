@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<!-- ===== Ray Home Accessories — v5.65 · صور on/off كلها (8) متصنّعة من نفس صور المنتج بالظبط بتأثير خفيف: اللمبة بتولّع في نفس الأوضة — مفيش تحويل للمشهد الليلي ولا تعتيم ولا كرة توهج كبيرة ولا أي إحساس بالتكبير · اتشال تعتيم الصورة الأساسية والتوهج حوالين الكروت · مسحنا أصول مش محتاجين ===== -->
+<!-- ===== Ray Home Accessories — v5.70 · إصلاح جذري لمشاكل الألوان والزووم: كل صور الألوان (120) اتعادت من نفس الصورة الأساسية لكل منتج — نفس الإطار ونفس الأبعاد بالظبط فاختيار أي لون مفيش معاه أي قفزة أو زووم، واللون بيبان واضح على اللمبة/الفازة · صور النور الأصلية الحقيقية رجعت (konio/table/p007/twisted) زي ما كانت · زووم الـhover للديسكتوب بس واللمس من غير أي زووم · اتشال اسم المنتج والتدرج الداكن والشيدو من تايلات الجالري خالص — الصور نضيفة · v5.68: البرايز بقت دهبية مزخرفة بلمعان معدني وخطوط زخرفية · v5.69: صور on/off كلها أصولية · v5.70: صور الألوان رجعت أصول الدرايف الحقيقية (ColorPhotos) — كل لون بصورته الصح، ومفيش أي صور مولّدة في اختيار الألوان ===== -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="assets/fonts.css">
 <title>Ray Home Accessories — 3D Printed Warmth for Every Home</title>
@@ -63,13 +63,13 @@ html.lights-on .magic-btn{background:radial-gradient(circle at 50% 40%,#FFE9BE 0
 html.lights-on .magic-btn .mb-ico{fill:#FFEFC9;filter:drop-shadow(0 0 6px rgba(255,230,170,.95))}
 .mg-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
 @media (max-width:720px){.mg-grid{grid-template-columns:repeat(2,1fr);gap:10px}.mb-arrow{width:52px;height:26px}.mb-txt{font-size:1.02rem}html[dir="rtl"] .mb-txt{font-size:1.12rem}.mg-trigger{flex-direction:column;gap:6px}.mb-pair{gap:9px}}
-.mg-tile{position:relative;aspect-ratio:3/4;overflow:hidden;border:9px solid #46392b;border-radius:6px;background:#f8f1e1;box-shadow:inset 0 0 0 2px #c9a04e,0 6px 18px rgba(33,29,24,.14);padding:5px;cursor:pointer;transition:transform .3s ease,box-shadow 2s ease}
+/* v5.68: برايز دهبية مزخرفة — لمعان معدني متدرج + خطوط زخرفية مايلة + شفاية داخلية */
+.mg-tile{position:relative;aspect-ratio:3/4;overflow:hidden;border:9px solid transparent;border-radius:6px;padding:5px;cursor:pointer;transition:transform .3s ease;background:linear-gradient(#f8f1e1,#f8f1e1) padding-box,repeating-linear-gradient(-45deg,rgba(255,246,214,.30) 0 3px,rgba(110,80,26,.20) 3px 6px,rgba(255,255,255,0) 6px 12px) border-box,linear-gradient(135deg,#7a5c22 0%,#c9a04e 14%,#f3e0a0 26%,#d4af37 38%,#8a6a28 52%,#e2c265 66%,#f7ecc4 80%,#a87f2e 92%,#7a5c22 100%) border-box;box-shadow:0 0 0 1px rgba(110,80,26,.5)}
+.mg-tile::after{content:'';position:absolute;inset:0;pointer-events:none;box-shadow:inset 0 0 0 2px rgba(110,80,26,.85),inset 0 0 0 3px rgba(247,236,196,.85)}
 .mg-tile:hover{transform:translateY(-4px)}
 .mg-tile img{width:100%;height:100%;object-fit:cover;display:block}
-html.lights-on .mg-tile{box-shadow:inset 0 0 0 2px #c9a04e,0 10px 34px rgba(238,178,88,.42)}
-.mg-nm{position:absolute;inset-inline:14px;bottom:14px;padding:22px 8px 9px;border-radius:6px;background:linear-gradient(transparent,rgba(22,16,10,.74));color:#fff;font-size:.64rem;font-weight:700;text-align:center;letter-spacing:.02em;pointer-events:none}
 /* v5.42: على الموبايل التايل أطول و أعرض و الاسم مش لازق في المنتج */
-@media (max-width:720px){.mg-tile{aspect-ratio:3/4.6}.mg-nm{padding:36px 10px 10px}}
+@media (max-width:720px){.mg-tile{aspect-ratio:3/4.6}}
 html[dir="rtl"] .mb-arrow{transform:scaleX(-1)}
 html.lights-on{--cream:#F6EDDD;--cream-2:#F2E5CF;--paper:#FFF6E8}
 html.lights-on header.nav{background:rgba(246,237,221,.93)}
@@ -95,6 +95,7 @@ body::before{content:"";position:fixed;inset:0;background:radial-gradient(1250px
 html.lights-on body::before{opacity:1}
 .card .thumb{transition:box-shadow 2s ease}
 .thumb img.lit-layer,.m-slide img.lit-layer,.c-img img.lit-layer,.a-img img.lit-layer,.m-th img.lit-layer,.mg-tile img.lit-layer{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.9s ease,transform 1.9s cubic-bezier(.22,.8,.3,1);pointer-events:none}
+html.lights-on .card .thumb{box-shadow:0 8px 30px rgba(238,178,88,.38)}
 html.lights-on img.lit-layer.lit-rdy{opacity:1}
 .m-th{position:relative}
 .m-th img.lit-layer{inset:2px;width:calc(100% - 4px);height:calc(100% - 4px);border-radius:8px}
@@ -222,6 +223,10 @@ html.lights-on img.lit-layer.lit-rdy{opacity:1}
 .mini-lit:disabled{opacity:.35;cursor:not-allowed;filter:grayscale(.45)}
 .mini-lit:disabled:hover{transform:none}
 /* v5.50: زرار النور الفردي على كل صورة فيها لمبة */
+.thumb.lit-on{background:#17120d;box-shadow:0 12px 34px rgba(238,178,88,.45)}
+.m-slide.lit-on{background:transparent}
+.m-slide.lit-on img:not(.lit-layer){background:#17120d}
+.lit-on.has-lit-photo img:not(.lit-layer){filter:brightness(.38) saturate(.82)}
 .lit-on img.lit-layer.lit-rdy{opacity:1}
 html.lights-on .lit-off img.lit-layer{opacity:0!important}
 .m-slide .mini-lit{top:16px;inset-inline-start:16px;inset-inline-end:auto}
@@ -305,7 +310,8 @@ html.lights-on .lit-off img.lit-layer{opacity:0!important}
 .thumb{position:relative;aspect-ratio:1/1;overflow:hidden;background:var(--cream-2)}
 .thumb img{width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.22,.8,.3,1),filter 1.9s ease,opacity .1s ease}
 .thumb.swapping img:not(.lit-layer){opacity:0}
-/* v5.64: شيلنا زووم الصور عند الـhover — الصورة بتتغير (نور/ألوان) من غير أي تكبير، والكارت بيرفع نفسه بس */
+/* v5.66: زووم الـhover للديسكتوب فقط — على اللمس مفيش زووم خالص (كان بيلزق على الموبايل) */
+@media (hover:hover) and (pointer:fine){.card:hover .thumb img{transform:scale(1.055)}}
 .badge{position:absolute;top:10px;inset-inline-start:10px;z-index:2;background:var(--ink);color:var(--cream);font-size:.52rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;padding:4px 9px;border-radius:16px;box-shadow:var(--shadow-sm)}
 .badge.new{background:var(--olive)}
 .badge.set{background:var(--terra)}
@@ -1740,7 +1746,6 @@ function renderMagicGallery(){
     return `<div class="mg-tile" onclick="mgOpen('${id}')">
       <img data-pid="${id}" src="${p.img}" alt="${p.name[lang]}" loading="lazy" onerror="imgFall(this)">
       ${p.lit ? `<img class="lit-layer" src="${p.lit}" alt="" onerror="this.style.display='none'">` : ''}
-      <span class="mg-nm">${p.name[lang]}</span>
     </div>`;
   }).join('');
 }
